@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #f5f5f5;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#4285F4", "font": {"color": "#333333"}, "id": "codigo_4.py", "label": "\ud83d\udcc4 codigo_4.py", "level": 0, "shape": "box", "size": 25}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "Libro", "label": "\ud83d\udfe2 Libro", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "Autor", "label": "\ud83d\udfe2 Autor", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "Biblioteca", "label": "\ud83d\udfe2 Biblioteca", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "Usuario", "label": "\ud83d\udfe2 Usuario", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "main", "label": "\ud83d\udd35 main", "level": 2, "shape": "diamond", "size": 15}, {"color": "#4285F4", "font": {"color": "#333333"}, "id": "demo_neural.py", "label": "\ud83d\udcc4 demo_neural.py", "level": 0, "shape": "box", "size": 25}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "NeuralNetwork", "label": "\ud83d\udfe2 NeuralNetwork", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "sigmoid", "label": "\ud83d\udd35 sigmoid", "level": 2, "shape": "diamond", "size": 15}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "sigmoid_derivative", "label": "\ud83d\udd35 sigmoid_derivative", "level": 2, "shape": "diamond", "size": 15}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "numpy", "label": "\ud83d\udfe3 numpy", "level": 3, "shape": "triangle", "size": 10}, {"color": "#4285F4", "font": {"color": "#333333"}, "id": "gestion_inventario.py", "label": "\ud83d\udcc4 gestion_inventario.py", "level": 0, "shape": "box", "size": 25}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "Producto", "label": "\ud83d\udfe2 Producto", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "MovimientoInventario", "label": "\ud83d\udfe2 MovimientoInventario", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "GestorInventario", "label": "\ud83d\udfe2 GestorInventario", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "measure_execution_time", "label": "\ud83d\udd35 measure_execution_time", "level": 2, "shape": "diamond", "size": 15}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "wrapper", "label": "\ud83d\udd35 wrapper", "level": 2, "shape": "diamond", "size": 15}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "uuid", "label": "\ud83d\udfe3 uuid", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "typing.Dict", "label": "\ud83d\udfe3 Dict", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "typing.List", "label": "\ud83d\udfe3 List", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "typing.Optional", "label": "\ud83d\udfe3 Optional", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "datetime.datetime", "label": "\ud83d\udfe3 datetime", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "datetime.timedelta", "label": "\ud83d\udfe3 timedelta", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "dataclasses.dataclass", "label": "\ud83d\udfe3 dataclass", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "dataclasses.field", "label": "\ud83d\udfe3 field", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "logging", "label": "\ud83d\udfe3 logging", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "threading", "label": "\ud83d\udfe3 threading", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "concurrent.futures", "label": "\ud83d\udfe3 futures", "level": 3, "shape": "triangle", "size": 10}, {"color": "#4285F4", "font": {"color": "#333333"}, "id": "planetario.py", "label": "\ud83d\udcc4 planetario.py", "level": 0, "shape": "box", "size": 25}, {"color": "#0F9D58", "font": {"color": "#333333"}, "id": "CelestialBody", "label": "\ud83d\udfe2 CelestialBody", "level": 1, "shape": "ellipse", "size": 20}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "calculate_acceleration", "label": "\ud83d\udd35 calculate_acceleration", "level": 2, "shape": "diamond", "size": 15}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "init", "label": "\ud83d\udd35 init", "level": 2, "shape": "diamond", "size": 15}, {"color": "#DB4437", "font": {"color": "#333333"}, "id": "update", "label": "\ud83d\udd35 update", "level": 2, "shape": "diamond", "size": 15}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "matplotlib.pyplot", "label": "\ud83d\udfe3 pyplot", "level": 3, "shape": "triangle", "size": 10}, {"color": "#9E9E9E", "font": {"color": "#333333"}, "id": "matplotlib.animation.FuncAnimation", "label": "\ud83d\udfe3 FuncAnimation", "level": 3, "shape": "triangle", "size": 10}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "codigo_4.py", "label": "contains", "to": "Libro", "width": 2}, {"arrows": "to", "from": "codigo_4.py", "label": "contains", "to": "Autor", "width": 2}, {"arrows": "to", "from": "codigo_4.py", "label": "contains", "to": "Biblioteca", "width": 2}, {"arrows": "to", "from": "codigo_4.py", "label": "contains", "to": "Usuario", "width": 2}, {"arrows": "to", "from": "codigo_4.py", "label": "contains", "to": "main", "width": 2}, {"arrows": "to", "from": "demo_neural.py", "label": "contains", "to": "NeuralNetwork", "width": 2}, {"arrows": "to", "from": "demo_neural.py", "label": "contains", "to": "sigmoid", "width": 2}, {"arrows": "to", "from": "demo_neural.py", "label": "contains", "to": "sigmoid_derivative", "width": 2}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "demo_neural.py", "label": "uses", "to": "numpy", "width": 1}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "Producto", "width": 2}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "MovimientoInventario", "width": 2}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "GestorInventario", "width": 2}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "measure_execution_time", "width": 2}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "wrapper", "width": 2}, {"arrows": "to", "from": "gestion_inventario.py", "label": "contains", "to": "main", "width": 2}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "uuid", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "typing.Dict", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "typing.List", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "typing.Optional", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "datetime.datetime", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "datetime.timedelta", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "dataclasses.dataclass", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "dataclasses.field", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "logging", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "threading", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "gestion_inventario.py", "label": "uses", "to": "concurrent.futures", "width": 1}, {"arrows": "to", "from": "planetario.py", "label": "contains", "to": "CelestialBody", "width": 2}, {"arrows": "to", "from": "planetario.py", "label": "contains", "to": "calculate_acceleration", "width": 2}, {"arrows": "to", "from": "planetario.py", "label": "contains", "to": "init", "width": 2}, {"arrows": "to", "from": "planetario.py", "label": "contains", "to": "update", "width": 2}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "planetario.py", "label": "uses", "to": "numpy", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "planetario.py", "label": "uses", "to": "matplotlib.pyplot", "width": 1}, {"arrows": "to", "color": "#9E9E9E", "dashes": [5, 5], "from": "planetario.py", "label": "uses", "to": "matplotlib.animation.FuncAnimation", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"nodes": {"borderWidth": 1, "borderWidthSelected": 2, "shadow": {"enabled": true, "color": "rgba(0,0,0,0.2)", "size": 10, "x": 5, "y": 5}}, "edges": {"arrows": {"to": {"enabled": true, "scaleFactor": 0.8}}, "color": {"inherit": false, "opacity": 0.8}, "smooth": {"type": "cubicBezier", "forceDirection": "horizontal", "roundness": 0.4}, "font": {"size": 10, "align": "middle"}}, "physics": {"hierarchicalRepulsion": {"centralGravity": 0.0, "springLength": 150, "springConstant": 0.01, "nodeDistance": 160, "damping": 0.09}, "solver": "hierarchicalRepulsion", "stabilization": {"enabled": true, "iterations": 1000, "updateInterval": 25}}, "interaction": {"navigationButtons": true, "keyboard": true, "tooltipDelay": 200, "hideEdgesOnDrag": true, "multiselect": true}, "layout": {"hierarchical": {"enabled": true, "direction": "UD", "sortMethod": "directed", "nodeSpacing": 150, "levelSeparation": 120}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

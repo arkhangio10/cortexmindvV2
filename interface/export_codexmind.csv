@@ -1,0 +1,2707 @@
+Archivo,Líneas totales,Código,Comentarios,En blanco,Funciones,Clases,Imports,Resumen IA
+conftest.py,5,3,1,1,0,0,,No se pudo generar resumen.
+examples\joystick.py,114,95,3,16,2,2,"time, threading, argparse, numpy, pprint.pprint, inputs.get_gamepad, kbhit.KBHit, opendbc.car.structs.CarControl, opendbc.car.panda_runner.PandaRunner","### 1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo es un ejemplo para la clase 2020.1.1: ""Python y opendbc"" de la asignatura 2020.1.1: ""Programación para la autonomía avanzada"" (https://www.udacity.com/course/programming-for-autonomous-vehicles--na-d4na). Es un archivo Python de ejemplo que ilustra cómo un usuario puede controlar el Panda mediante el mando a distancia.
+
+### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+**Joystick**
+
+Esta clase proporciona una representación de la interfaz de mando (joystick).
+
+**Keyboard**
+
+E"
+examples\kbhit.py,60,39,4,17,0,1,"sys, termios, atexit, select.select","### 3. Resumen Técnico
+
+Este archivo se utiliza para comprobar la presencia de una entrada desde el teclado.
+
+### 4. Diagrama de Clases (UML)
+
+![imagen](https://github.com/sistop-arq/sistop-arq.github.io/blob/master/assets/images/kbhit_uml.png)
+
+### 5. Implementación
+
+* La clase **KBHit** se encarga de devolver True cuando se presione una tecla y False en otro caso.
+
+```python
+class KBHit:
+  """"""
+  A non-blocking keyboard interrupt.
+  """"""
+
+  def __init__(self):
+      # Create a file-like object.
+      self.impl = _KBHit()"
+opendbc\can\can_define.py,3,2,0,1,0,0,opendbc.can.parser_pyx.CANDefine,No se pudo generar resumen.
+opendbc\can\packer.py,3,2,0,1,0,0,opendbc.can.packer_pyx.CANPacker,No se pudo generar resumen.
+opendbc\can\parser.py,3,2,0,1,0,0,"opendbc.can.parser_pyx.CANParser, opendbc.can.parser_pyx.CANDefine",No se pudo generar resumen.
+opendbc\can\tests\test_checksums.py,557,514,2,41,0,1,"copy, opendbc.can.parser.CANParser, opendbc.can.packer.CANPacker","## 2. Documentación de las funciones
+
+📦 Nombre del archivo: opendbc\can\packer.py
+📦 Clases: CANPacker
+🔧 Funciones: pack_can_message(), pack_can_signal()
+
+Por favor, explica:
+1. ¿Qué hace cada función?
+2. ¿Cuáles son sus parámetros y qué hacen?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+📦 Nombre del archivo: opendbc\can\parser.py
+📦 Clases: CANParser
+🔧 Funciones: parse_dbc_file(), CANParser
+
+Por favor, explica:"
+opendbc\can\tests\test_dbc_exceptions.py,31,24,1,6,0,1,"pytest, opendbc.can.parser.CANParser, opendbc.can.parser.CANDefine, opendbc.can.packer.CANPacker, opendbc.can.tests.TEST_DBC","# 1. ¿Cuál es el propósito principal de este archivo?
+El objetivo principal de este archivo es probar las excepciones de CANParser y CANPacker.
+
+# 2. ¿Qué hacen sus clases y funciones más importantes?
+Ninguna clase o función tiene un significado especialmente importante.
+
+# 3. ¿Cómo se relaciona con el resto del proyecto?
+Este archivo forma parte del proyecto OpenDBC.
+""""""
+
+import pytest
+
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+from opendbc.can.tests import TEST_DBC
+
+
+class TestCanParserPackerExceptions(object):
+  def test_dbc_not_found(self):
+    with pytest."
+opendbc\can\tests\test_dbc_parser.py,22,16,1,5,0,1,"opendbc.can.parser.CANParser, opendbc.can.tests.ALL_DBCS","### 4.2.1.2. Método 'test_parse_dbc'
+
+Analiza el siguiente código:
+
+```python
+class TestDBCParser(unittest.TestCase):
+    def test_parse_dbc(self):
+        dbc_file = opendbc.can.tests.ALL_DBCS['honda_civic_touring_2016_can']
+        parser = opendbc.can.parser.CANParser(dbc_file)
+```
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de esta función?
+2. ¿Cuál es la función de cada elemento de este código?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado."
+opendbc\can\tests\test_define.py,27,20,1,6,0,1,"opendbc.can.can_define.CANDefine, opendbc.can.tests.ALL_DBCS","""""""
+
+from opendbc.can.can_define import CANDefine
+from opendbc.can.tests.all_dbcs import ALL_DBC_FILES
+
+
+class TestCANDefine(object):
+    def test_can_define_parse(self):
+        """"""
+        Test CANDefine parsing from all dbc files.
+        """"""
+        for dbc_file in ALL_DBC_FILES:
+            CANDefine.create(dbc_file)
+
+    def test_can_define_str(self):
+        """"""
+        Test CANDefine __str__ method
+        """"""
+        for dbc_file in ALL_DBC_FILES:
+            CANDefine.create(dbc_file)
+
+    def test_can_define_message_name(self):
+        """"""
+        Test CANDefine message_name method"
+opendbc\can\tests\test_packer_parser.py,369,274,25,70,0,1,"pytest, random, opendbc.can.parser.CANParser, opendbc.can.packer.CANPacker, opendbc.can.tests.TEST_DBC","Este archivo es el archivo de prueba principal de los paquetes de Python que proporciona opendbc.
+
+👩‍💻 Para escribir esta documentación, usamos el siguiente código:
+```python
+from opendbc.can.tests.test_packer_parser import *
+```
+
+###### 2.1.1.2.2.1.1.2.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1.1"
+opendbc\can\tests\test_parser_performance.py,49,39,0,10,0,1,"pytest, time, opendbc.can.parser.CANParser, opendbc.can.packer.CANPacker","""""""
+
+import time
+
+import pytest
+
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+
+
+class TestParserPerformance:
+
+    @pytest.mark.parametrize(""file_name"", [""honda_civic_touring_2016_can_generated.dbc""])
+    def test_parser_performance(self, file_name):
+        parser = CANParser(file_name)
+        packer = CANPacker(file_name)
+
+        # warm up
+        for _ in range(1000):
+            parser.update_string(packer.make_can_msg(""LKAS_COMMAND"", 1, 0))
+
+        # measure
+        start = time.perf_counter()"
+opendbc\car\can_definitions.py,16,9,0,7,0,2,"collections.abc.Callable, typing.NamedTuple, typing.Protocol","### ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### ¿Qué hacen sus clases y funciones más importantes?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### ¿Cuál es el propósito principal de este archivo?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+## 6. Opendbc\car\__init__.py
+
+📄 Descripción
+
+Este archivo le permite al usuario importar las clases que se definieron en el archivo de Python llamado 'opendbc\car\can_definitions.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo"
+opendbc\car\carlog.py,13,9,1,3,0,0,"os, logging",No se pudo generar resumen.
+opendbc\car\car_helpers.py,174,118,18,38,6,0,"os, time, opendbc.car.gen_empty_fingerprint, opendbc.car.can_definitions.CanRecvCallable, opendbc.car.can_definitions.CanSendCallable, opendbc.car.carlog.carlog, opendbc.car.structs.CarParams, opendbc.car.structs.CarParamsT, opendbc.car.fingerprints.eliminate_incompatible_cars, opendbc.car.fingerprints.all_legacy_fingerprint_cars, opendbc.car.fw_versions.ObdCallback, opendbc.car.fw_versions.get_fw_versions_ordered, opendbc.car.fw_versions.get_present_ecus, opendbc.car.fw_versions.match_fw_to_car, opendbc.car.mock.values.CAR, opendbc.car.values.BRANDS, opendbc.car.vin.get_vin, opendbc.car.vin.is_valid_vin, opendbc.car.vin.VIN_UNKNOWN","### opendbc\car\__init__.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\car\__init__.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\__init__.py
+📦 Clases: Ninguna
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can, opendbc.can.interface, opendbc.can.can_define, opendbc.can.can_types, opendbc.can.can_constants, opendbc.can.can_utils, opendbc.car.car_helpers, opendbc.car.carlog, opendbc.car.structs, opendbc.car.values
+
+Por"
+opendbc\car\ccp.py,374,314,10,50,0,11,"sys, time, struct, enum.IntEnum, enum.Enum, dataclasses.dataclass","## 3. Implementa la API de OpenDBC en Python.
+
+Ejecuta el siguiente archivo Python llamado 'opendbc\car\ccp.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\ccp.py
+📦 Clases: ExchangeStationIdsReturn, GetDaqListSizeReturn, GetSessionStatusReturn, DiagnosticServiceReturn, ActionServiceReturn, COMMAND_CODE, BYTE_ORDER, CommandTimeoutError, CommandCounterError, CommandResponseError, CcpClient
+🔧 Funciones: Ninguna
+📥 Imports: sys, time, struct, enum.IntEnum, enum.Enum, dataclasses.dataclass
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal"
+opendbc\car\disable_ecu.py,37,25,0,12,1,0,"opendbc.car.carlog.carlog, opendbc.car.isotp_parallel_query.IsoTpParallelQuery","## 📚 Guía de Estilo
+
+Estas son las reglas de estilo que sigue este proyecto:
+
+- Utiliza 4 espacios por tabulador
+- No uses comentarios de una sola línea
+- Utiliza comillas dobles
+- Utiliza comillas simples para cadenas de texto en Python
+- Los nombres de las variables en Python deben utilizar `lower_case_with_underscores`
+- Los nombres de las clases en Python deben utilizar `CamelCase`
+- Los nombres de las funciones en Python deben utilizar `lower_case_with_underscores`
+- Los nombres de los argumentos de la función de Python deben utilizar `lower_case_with_underscores`
+
+## 📖 Guía de Contribuciones"
+opendbc\car\docs.py,105,73,6,26,6,0,"argparse, os, typing.get_args, collections.defaultdict, jinja2, enum.Enum, natsort.natsorted, opendbc.car.common.basedir.BASEDIR, opendbc.car.gen_empty_fingerprint, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.BaseCarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.Device, opendbc.car.docs_definitions.ExtraCarDocs, opendbc.car.docs_definitions.Column, opendbc.car.docs_definitions.ExtraCarsColumn, opendbc.car.docs_definitions.CommonFootnote, opendbc.car.docs_definitions.PartType, opendbc.car.docs_definitions.SupportType, opendbc.car.car_helpers.interfaces, opendbc.car.interfaces.get_interface_attr, opendbc.car.values.Platform, opendbc.car.mock.values.CAR, opendbc.car.extra_cars.CAR","""""""
+
+import argparse
+import enum
+import os
+from typing import Dict, List, Tuple
+
+import jinja2
+import natsort
+import numpy as np
+import pandas as pd
+
+import opendbc.car.car_helpers
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+from opendbc.can.schema import CANSchema
+from opendbc.can.util import all_named_tuples_to_dicts
+from opendbc.can.packer import CANPacker
+from opendbc.can.parser import CANParser
+from opendbc.can.schema import CANSchema
+from opendbc.can.util import all_named_tuples_to_dicts
+
+from opendbc.can.packer import CANPack"
+opendbc\car\docs_definitions.py,426,312,21,93,3,19,"re, collections.namedtuple, copy, dataclasses.dataclass, dataclasses.field, enum.Enum, opendbc.car.common.conversions.Conversions, opendbc.car.structs.CarParams","### 1.2 CarDocs
+
+Describe la clase 'CarDocs' y explica qué hace.
+
+📁 Nombre del archivo: opendbc\car\docs_definitions.py
+📦 Clase: CarDocs
+🔧 Funciones: get_car_params
+
+### 1.3 ExtraCarDocs
+
+Describe la clase 'ExtraCarDocs' y explica qué hace.
+
+📁 Nombre del archivo: opendbc\car\docs_definitions.py
+📦 Clase: ExtraCarDocs
+🔧 Funciones: get_extra_car_params
+
+### 1.4 Column
+
+Describe la clase 'Column' y explica qué hace.
+
+📁 Nombre del"
+opendbc\car\ecu_addrs.py,56,42,4,10,3,0,"time, opendbc.car.make_tester_present_msg, opendbc.car.uds, opendbc.car.can_definitions.CanData, opendbc.car.can_definitions.CanRecvCallable, opendbc.car.can_definitions.CanSendCallable, opendbc.car.carlog.carlog, opendbc.car.fw_query_definitions.EcuAddrBusType","```python
+#!/usr/bin/env python
+
+""""""
+Definitions of ECU addresses used by different cars
+""""""
+
+import time
+from enum import IntEnum
+from typing import List, Tuple, Callable
+
+import opendbc.can.packer
+from opendbc.can.packer import CANPacker
+from opendbc.can.parser import CANParser
+
+from selfdrive.car.car_helpers import interfaces
+from selfdrive.car.fw_api_toyota import get_fw_versions
+from selfdrive.swaglog import cloudlog
+from selfdrive.config import Conversions as CV
+
+
+class Ecu:
+  # These are defined for all cars
+  NONE = 0x1000
+  EPB = 0x1001
+  EPS = 0x1002"
+opendbc\car\extra_cars.py,75,61,0,14,0,4,"dataclasses.dataclass, opendbc.car.structs, opendbc.car.Platforms, opendbc.car.ExtraPlatformConfig, opendbc.car.docs_definitions.ExtraCarDocs, opendbc.car.docs_definitions.SupportType","""""""
+
+import dataclasses
+
+from opendbc.car.structs import CarInterfaceBase, CarStateBase
+from opendbc.car.Platforms import get_platform_name
+from opendbc.car.ExtraPlatformConfig import get_extra_config_by_name
+from opendbc.car.docs_definitions import ExtraCarDocs, SupportType
+
+
+def get_extra_car_docs(car_config):
+  try:
+    return EXTRA_CAR_DOCS_BY_NAME[get_platform_name(car_config)]
+  except KeyError:
+    return None
+
+
+@dataclasses.dataclass
+class ExtraCarDocs:
+  car_name: str
+  platform: SupportType
+  car_config: ExtraCarDocs
+
+
+class CommunityCarDocs(ExtraCarDocs):
+  car"
+opendbc\car\fingerprints.py,341,319,4,18,3,0,"opendbc.car.interfaces.get_interface_attr, opendbc.car.body.values.CAR, opendbc.car.chrysler.values.CAR, opendbc.car.ford.values.CAR, opendbc.car.gm.values.CAR, opendbc.car.honda.values.CAR, opendbc.car.hyundai.values.CAR, opendbc.car.mazda.values.CAR, opendbc.car.mock.values.CAR, opendbc.car.nissan.values.CAR, opendbc.car.subaru.values.CAR, opendbc.car.toyota.values.CAR, opendbc.car.volkswagen.values.CAR","Para ayudar a mejorar el diseño del proyecto, proporcione tugerencia de como se podría mejorar el archivo.
+""""""
+
+from typing import Optional, List, Dict, Union, Callable, Any
+
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+from opendbc.can.can_define import CANDefine
+from opendbc.config import CAR
+
+
+def is_valid_for_fingerprint(candidate: Dict[str, Any], fingerprint: CAR) -> bool:
+  """"""Return True if the candidate car is a valid match for the given fingerprint.""""""
+  return candidate[""carFingerprint""] == fingerprint
+
+
+def eliminate_incompatible_cars(candidates: List[Dict[str, Any]],"
+opendbc\car\fw_query_definitions.py,153,97,20,36,1,3,"copy, dataclasses.dataclass, dataclasses.field, struct, collections.abc.Callable, opendbc.car.uds, opendbc.car.structs.CarParams","### 📦 CarParams
+
+La clase `CarParams` es una clase de datos que se utiliza para almacenar información sobre los parámetros de la unidad de datos de control (CUD) de un auto.
+
+Se almacenan los siguientes datos:
+
+- Car Identification Number (CID): Identificador del auto (ID)
+- Car Identification Number (CID): Identificador del auto (CID)
+- Car Model: Modelo del auto
+- Car Make: Fabricante del auto
+- Car Model Year: Año del auto
+- Car Trim: Tipo de auto
+- Firmware Version: Versión de la aplicación de firmware
+- Hardware Params: Parámetros de hardware
+- Safety Model: Modelo de seguridad
+- Safety Model: Modelo de seguridad
+- Network"
+opendbc\car\fw_versions.py,328,222,32,74,10,1,"collections.defaultdict, collections.abc.Callable, collections.abc.Iterator, typing.Protocol, typing.TypeVar, tqdm.tqdm, opendbc.car.uds, opendbc.car.can_definitions.CanRecvCallable, opendbc.car.can_definitions.CanSendCallable, opendbc.car.carlog.carlog, opendbc.car.structs.CarParams, opendbc.car.ecu_addrs.get_ecu_addrs, opendbc.car.fingerprints.FW_VERSIONS, opendbc.car.fw_query_definitions.ESSENTIAL_ECUS, opendbc.car.fw_query_definitions.AddrType, opendbc.car.fw_query_definitions.EcuAddrBusType, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.LiveFwVersions, opendbc.car.fw_query_definitions.OfflineFwVersions, opendbc.car.interfaces.get_interface_attr, opendbc.car.isotp_parallel_query.IsoTpParallelQuery","### 📑 opendbc\car\can_definitions.py
+
+El siguiente archivo Python se llama 'opendbc\car\can_definitions.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\can_definitions.py
+📦 Clases: CanRecvCallable, CanSendCallable
+🔧 Funciones: get_can_signals_defs, get_can_msgs_defs
+📥 Imports: typing.List, typing.Dict, typing.Tuple, typing.TypeVar, typing.Union, typing.Optional, typing.Sequence, typing.Any, typing.Iterable, typing.Callable, typing.Mapping, collections.OrderedDict, collections.abc.Mapping, opend"
+opendbc\car\interfaces.py,449,337,19,93,2,6,"json, os, numpy, time, tomllib, abc.abstractmethod, abc.ABC, enum.StrEnum, typing.Any, typing.NamedTuple, collections.abc.Callable, functools.cache, opendbc.car.DT_CTRL, opendbc.car.apply_hysteresis, opendbc.car.gen_empty_fingerprint, opendbc.car.scale_rot_inertia, opendbc.car.scale_tire_stiffness, opendbc.car.get_friction, opendbc.car.STD_CARGO_KG, opendbc.car.structs, opendbc.car.can_definitions.CanData, opendbc.car.can_definitions.CanRecvCallable, opendbc.car.can_definitions.CanSendCallable, opendbc.car.common.basedir.BASEDIR, opendbc.car.common.conversions.Conversions, opendbc.car.common.simple_kalman.KF1D, opendbc.car.common.simple_kalman.get_kalman_gain, opendbc.car.values.PLATFORMS, opendbc.can.parser.CANParser","---
+
+## 📝 Notas
+
+Proporciona un resumen técnico detallado de cualquier nota que se considera relevante para el archivo.
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico detallado.
+
+---
+
+## 🔗 Referencias
+
+Por favor, proporciona cualquier referencia que se considere relevante.
+
+---
+
+## 📜 Licencia
+
+Proporciona el nombre del autor y la licencia utilizada.
+
+---
+
+## 🧪 Pruebas
+
+Describe las pruebas de Q"
+opendbc\car\isotp.py,141,108,10,23,5,0,"binascii, time","### 2.1.2. ¿Cómo se relaciona con el resto del proyecto?
+
+Explica el siguiente archivo Python llamado 'opendbc\car\isotp.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\isotp.py
+📦 Clases: Ninguna
+🔧 Funciones: msg, recv, isotp_recv_subaddr, isotp_send, isotp_recv
+📥 Imports: binascii, time
+
+Por favor, explica:
+1. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+## 2.2. opendbc\"
+opendbc\car\isotp_parallel_query.py,171,126,15,30,0,1,"time, collections.defaultdict, functools.partial, opendbc.car.uds, opendbc.car.can_definitions.CanData, opendbc.car.can_definitions.CanRecvCallable, opendbc.car.can_definitions.CanSendCallable, opendbc.car.carlog.carlog, opendbc.car.fw_query_definitions.AddrType","# IsoTpParallelQuery
+
+This class is responsible for sending queries in parallel to multiple ECUs,
+and returning a single result for each ECU.
+
+## Motivation
+
+The `IsoTpParallelQuery` class is useful when you want to send a query to
+many ECUs and collect the responses.
+
+## Usage
+
+The `IsoTpParallelQuery` class is a context manager that accepts a list of
+`CanData` objects. Each `CanData` object defines an address to send a query
+to. It is up to you to determine the best way to construct these objects.
+
+```
+from opendbc.can.can_definitions import CanData
+from opendbc.car.isotp_parallel_query import IsoTpParallelQuery
+
+cans = [
+  CanData(0x18F, 0"
+opendbc\car\panda_runner.py,58,44,2,12,0,1,"time, contextlib.AbstractContextManager, panda.Panda, opendbc.car.car_helpers.get_car, opendbc.car.can_definitions.CanData, opendbc.car.structs.CarParams, opendbc.car.structs.CarControl","A continuación, elige la mejor opción de respuesta a cada pregunta.
+
+1. ¿Cuál es el propósito principal de este archivo?
+    - [ ] El archivo principal para ejecutar Panda.
+    - [x] El archivo principal para obtener la configuración de la unidad.
+    - [ ] El archivo principal para ejecutar Panda y obtener la configuración de la unidad.
+2. ¿Qué hacen sus clases y funciones más importantes?
+    - [x] La clase PandaRunner obtiene la configuración de la unidad y ejecuta Panda.
+    - [ ] La clase PandaRunner obtiene la configuración de la unidad.
+    - [ ] La clase PandaRunner ejecuta Panda.
+3. ¿Cómo se relaciona con el resto"
+opendbc\car\secoc.py,48,27,8,13,2,0,"struct, Crypto.Hash.CMAC, Crypto.Cipher.AES","### Respuesta
+
+1. Este archivo tiene como propósito el proporcionar la funcionalidad para generar el hash de un mensaje basado en el algoritmo SHA-256, para lo cual se utilizan las librerías Crypto.Hash.CMAC, Crypto.Cipher.AES, y struct.
+2. La clase principal que se utiliza es la clase CMAC, que se encarga de generar el hash basado en el algoritmo SHA-256.
+3. Este archivo no se relaciona con el resto del proyecto ya que no se usa ninguna clase de la librería can.
+
+## 11. ¿Qué hace el siguiente archivo Python llamado 'opendbc\can.py' y proporciona un resumen técnico para un desarrollador nuevo?"
+opendbc\car\structs.py,21,16,1,4,0,0,"os, capnp, opendbc.car.common.basedir.BASEDIR, cereal.car",No se pudo generar resumen.
+opendbc\car\uds.py,942,763,54,125,3,31,"time, struct, collections.deque, typing.NamedTuple, typing.cast, collections.abc.Callable, collections.abc.Generator, enum.IntEnum, functools.partial, opendbc.car.carlog.carlog","---
+
+# 📦 Clase: SERVICE_TYPE
+
+---
+
+## 📝 Atributos
+
+| Nombre | Tipo |
+| --- | --- |
+| SERVICE_TYPE.DIAGNOSTICS | SERVICE_TYPE |
+| SERVICE_TYPE.SECURITY | SERVICE_TYPE |
+| SERVICE_TYPE.EMERGENCY | SERVICE_TYPE |
+| SERVICE_TYPE.COMMANDED_DIAGNOSTIC | SERVICE_TYPE |
+| SERVICE_TYPE.REPORT_ON_REQUEST | SERVICE_TYPE |
+| SERVICE_TYPE.PROPRIETARY_1 | SERVICE_TYPE |
+| SERVICE_TYPE.PROPRIETARY_2 | SERVICE_TYPE |
+| SERVICE_TYPE.PROPRIETARY_3 | SERVICE_TYPE |"
+opendbc\car\values.py,21,18,0,3,0,0,"typing.get_args, opendbc.car.body.values.CAR, opendbc.car.chrysler.values.CAR, opendbc.car.ford.values.CAR, opendbc.car.gm.values.CAR, opendbc.car.honda.values.CAR, opendbc.car.hyundai.values.CAR, opendbc.car.mazda.values.CAR, opendbc.car.mock.values.CAR, opendbc.car.nissan.values.CAR, opendbc.car.rivian.values.CAR, opendbc.car.subaru.values.CAR, opendbc.car.tesla.values.CAR, opendbc.car.toyota.values.CAR, opendbc.car.volkswagen.values.CAR",No se pudo generar resumen.
+opendbc\car\vehicle_model.py,231,173,4,54,4,1,"numpy, numpy.linalg.solve, opendbc.car.structs.CarParams","# 3. Código
+
+Explica el funcionamiento del código.
+
+# 4. Diagnóstico de errores
+
+Explica cómo solucionar errores comunes.
+
+# 5. Pruebas
+
+Describe el proceso de pruebas del código.
+
+# 6. Implementación
+
+Explica cómo se implementó el código.
+
+# 7. Conclusión
+
+Concluye el documento.
+
+---
+
+# 1. Introducción
+
+Este documento es un análisis de la arquitectura de software de OpenDBC.
+
+# 2. Análisis
+
+Examina el siguiente archivo Python llamado 'opendbc\car\vehicle_model.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del"
+opendbc\car\vin.py,76,53,6,17,2,1,"re, dataclasses.dataclass, dataclasses.field, opendbc.car.uds, opendbc.car.carlog.carlog, opendbc.car.isotp_parallel_query.IsoTpParallelQuery, opendbc.car.fw_query_definitions.STANDARD_VIN_ADDRS, opendbc.car.fw_query_definitions.StdQueries","### Vin
+
+#### is_valid_vin
+
+##### Parámetros
+
+* *vin*: Vin
+
+##### Retorna
+
+El resultado de la validación de VIN
+
+#### get_vin
+
+##### Parámetros
+
+* *vin*: Vin
+
+##### Retorna
+
+El VIN
+
+##### Ejemplo de uso
+
+```
+from opendbc.car.vin import Vin
+
+vin = Vin(vin='WBAFA123456789012345')
+assert vin.is_valid_vin() == True
+assert vin.get_vin() == 'WBAFA123456789012345'
+```
+
+### Ejemplo de uso
+
+Este es un ejemplo de uso del archivo 'vin.py'.
+
+```"
+opendbc\car\xcp.py,259,222,8,29,0,7,"sys, time, struct, enum.IntEnum","Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?"
+opendbc\car\body\bodycan.py,8,6,0,2,1,0,,"### 🔧 Funciones
+
+A continuación se enumeran las funciones que se encuentran en el archivo 'opendbc\car\body\bodycan.py'.
+
+#### create_control
+
+```python
+def create_control(can_bus_name: str, signals: List[Signal], checks: List[Dict[str, Any]],
+                   checks_alignment: Dict[str, str], counter: Dict[str, str],
+                   sendcan: Callable, valid: bool = True,
+                   frequency: float = 100, check_alignment_in_ms: float = 1000.0):
+```
+
+Esta función crea un controlador de señales.
+
+Los parámetros son los siguientes:
+
+* can_bus_name (str): Nombre del bus CAN"
+opendbc\car\body\carcontroller.py,83,59,5,19,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.common.pid.PIDController, opendbc.car.body.bodycan, opendbc.car.body.values.SPEED_FROM_RPM, opendbc.car.interfaces.CarControllerBase","### 1.1 ¿Cuál es el propósito principal de este archivo?
+
+🔘 CarController
+
+
+### 1.2 ¿Qué hacen sus clases y funciones más importantes?
+
+🔘 CarController
+- El CarController clase es la clase de alto nivel que controla el control de velocidad del carro.
+
+🔘 _create_gas_command
+- La función _create_gas_command toma la velocidad del carro y el gas del usuario.
+
+🔘 _create_steering_command
+- La función _create_steering_command toma el ángulo de dirección del carro y el ángulo de dirección del usuario.
+
+🔘 _create_brake_command
+- La función _create_brake_command"
+opendbc\car\body\carstate.py,41,29,1,11,0,1,"opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.CarStateBase, opendbc.car.body.values.DBC","### Ejemplo de respuesta
+
+```
+1. El archivo carstate.py define una clase llamada CarState que se usa para leer y escribir valores de estado del vehículo.
+2. Los métodos principales de CarState son update_string y update_values.
+3. El archivo carstate.py importa varios archivos relacionados con el proyecto:
+   - opendbc.can.parser.CANParser: se usa para leer y escribir el frame CAN.
+   - opendbc.car.Bus: se usa para leer y escribir el valor de la bus.
+   - opendbc.car.structs: se usa para leer y escribir la estructura de datos.
+   - opendbc.car.interfaces.CarStateBase: se usa para leer y escribir los valores de estado"
+opendbc\car\body\fingerprints.py,29,21,2,6,0,0,"opendbc.car.structs.CarParams, opendbc.car.body.values.CAR",No se pudo generar resumen.
+opendbc\car\body\interface.py,31,23,0,8,0,1,"math, opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.body.carcontroller.CarController, opendbc.car.body.carstate.CarState, opendbc.car.body.values.SPEED_FROM_RPM, opendbc.car.interfaces.CarInterfaceBase","### 1. ¿Qué es OpenDBC?
+
+OpenDBC es un proyecto que pretende proporcionar un conjunto de herramientas para el análisis de datos de automóviles, como la velocidad, el acelerador, la dirección, la frenada, el control de frenos, etc.
+
+### 2. ¿Por qué es importante este proyecto?
+
+Aunque OpenDBC es un proyecto en desarrollo, es un proyecto con un gran potencial para la comunidad de automóviles. Es un proyecto que se basa en el análisis de datos y por lo tanto tiene una gran importancia en el desarrollo de software de control automático.
+
+### 3. ¿Cómo puedo participar?
+
+Puedes participar de dos maneras:
+
+- Añadiendo tu propia marca de automóvil"
+opendbc\car\body\values.py,41,30,0,11,0,2,"opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarDocs, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","### 📚 Documentación:
+
+Utiliza el siguiente archivo Python llamado 'opendbc\car\body\values.py' y proporciona una documentación detallada.
+
+📁 Nombre del archivo: opendbc\car\body\values.py
+📦 Clases: CarControllerParams, CAR
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarDocs, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, op"
+opendbc\car\chrysler\carcontroller.py,84,56,8,20,0,1,"opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.apply_meas_steer_torque_limits, opendbc.car.chrysler.chryslercan, opendbc.car.chrysler.values.RAM_CARS, opendbc.car.chrysler.values.CarControllerParams, opendbc.car.chrysler.values.ChryslerFlags, opendbc.car.interfaces.CarControllerBase","### 3.3.3. Explica cómo funciona el código
+
+Proporciona una explicación detallada de las partes del código más importantes.
+
+### 3.3.4. Explica cómo se probó el código
+
+Proporciona una explicación detallada de cómo se probó el código.
+
+### 3.3.5. Explica si el código necesita mejoras
+
+Proporciona una explicación detallada de las mejoras que se deben hacer al código.
+
+## 3.4. Ponga su código a prueba
+
+Explica cómo probar su código.
+
+### 3.4.1. Cree una prueba de unidad
+
+Explica cómo crear una prueba de unidad.
+
+### 3.4.2. Cree una"
+opendbc\car\chrysler\carstate.py,161,121,10,30,0,1,"opendbc.can.parser.CANParser, opendbc.can.can_define.CANDefine, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.chrysler.values.DBC, opendbc.car.chrysler.values.STEER_THRESHOLD, opendbc.car.chrysler.values.RAM_CARS, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase","### opendbc\can\parser.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\can\parser.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\parser.py
+🔧 Clases: CANParser
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico"
+opendbc\car\chrysler\chryslercan.py,72,37,19,16,3,0,"opendbc.car.structs, opendbc.car.chrysler.values.RAM_CARS","## Resumen técnico
+
+1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo define las estructuras de datos (clases) que hacen posible el mapeo de los mensajes de control y el mapeo de los mensajes de datos.
+
+2. ¿Qué hacen sus clases y funciones más importantes?
+
+En esta clase se define el mapeo de los datos.
+
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+El resto del proyecto es el que utiliza esta clase para mapear los datos de los mensajes de control y datos.
+""""""
+
+import opendbc.car.structs
+from opendbc.can.packer import CANPacker
+from opendbc.can.parser import CANParser
+from opendbc.can.can_"
+opendbc\car\chrysler\fingerprints.py,763,760,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.chrysler.values.CAR",No se pudo generar resumen.
+opendbc\car\chrysler\interface.py,81,55,10,16,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.chrysler.carcontroller.CarController, opendbc.car.chrysler.carstate.CarState, opendbc.car.chrysler.radar_interface.RadarInterface, opendbc.car.chrysler.values.CAR, opendbc.car.chrysler.values.RAM_HD, opendbc.car.chrysler.values.RAM_DT, opendbc.car.chrysler.values.RAM_CARS, opendbc.car.chrysler.values.ChryslerFlags, opendbc.car.chrysler.values.ChryslerSafetyFlags, opendbc.car.interfaces.CarInterfaceBase","```python
+
+```
+
+## Describe en detalle la clase CarInterface
+
+A continuación, analiza el siguiente archivo Python llamado 'opendbc\car\chrysler\carcontroller.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\chrysler\carcontroller.py
+📦 Clases: CarController
+🔧 Funciones: Ninguna
+📥 Imports: CarInterface, CarState, RadarInterface, CarControllerParams, CanBus, CanTx, CarController, Joystick
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```python
+
+```
+
+## Describe en detalle la clase CarState
+
+A continuación, analiza el siguiente archivo Python llamado"
+opendbc\car\chrysler\radar_interface.py,83,56,10,17,2,1,"opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.RadarInterfaceBase, opendbc.car.chrysler.values.DBC","📝 Proporciona un ejemplo de uso para el archivo de Python.
+
+Ejemplo:
+```python
+import opendbc
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+from opendbc.car.chrysler.radar_interface import RadarInterface
+
+
+def test_radar():
+    dbc_file = '../opendbc/car/chrysler/db/db_3.5_2019_pacifica.dbc'
+    can_define = CANDefine(dbc_file)
+    messages = [
+        ('RADAR_HUD', 0),
+        ('RADAR_LKAS_HUD', 0),
+    ]
+    msg_names, msg_lengths = zip(*messages)"
+opendbc\car\chrysler\values.py,160,126,5,29,0,7,"enum.IntFlag, dataclasses.dataclass, dataclasses.field, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.uds, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.p16","### opendbc\car\chrysler\values.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\car\chrysler\values.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\chrysler\values.py
+📦 Clases: Ninguna
+🔧 Funciones: chrysler_get_car_can_signals, chrysler_get_car_params, chrysler_get_car_harness_conf, chrysler_get_car_fw_query_conf
+📥 Imports: enum, dataclasses, opendbc.can.packer, opendbc.can.parser, opendbc.can.can_definitions, opendbc.can."
+opendbc\car\common\basedir.py,5,2,0,3,0,0,os,No se pudo generar resumen.
+opendbc\car\common\conversions.py,20,13,3,4,0,1,numpy,"### 🔗 Referencias adicionales
+
+- [📚 Referencias](https://github.com/commaai/openpilot/tree/master/common/pyextra/openpilot/conversions.py)
+- [📦 Repositorio](https://github.com/commaai/openpilot)
+- [📘 Documentación](https://github.com/commaai/openpilot/tree/master/docs)
+- [📗 Tutoriales](https://github.com/commaai/openpilot/tree/master/docs/tutorials)
+- [📘 Manuales](https://github.com/commaai/openpilot/tree/master/docs/manuals)
+- [📘 Guías](https://github.com"
+opendbc\car\common\filter_simple.py,19,15,1,3,0,1,,"## 📝 Descripción
+
+Este proyecto consiste en un paquete Python de código abierto que permite la comunicación con un bus de datos CAN en Python.
+
+
+### 📋 Requisitos
+
+* Python 3.7
+* CAN_dbc
+* Python-can
+* Python-canopen
+
+
+
+### 🔨 Instalación
+
+```
+pip3 install opendbc
+```
+
+
+### 📦 Características
+
+* Método de filtrado simple
+* Método de filtrado simple
+* Método de filtrado simple
+
+
+
+### 🚀 Instalación y ejecución
+
+```
+git clone https://github.com/Alejandro125/opendbc.git
+```"
+opendbc\car\common\pid.py,71,54,1,16,0,1,"numpy, numbers.Number","## 2. Problema y objetivos
+
+Proporciona un resumen técnico del problema y del objetivo del proyecto.
+
+## 3. Tecnologías y herramientas
+
+Proporciona una lista de las tecnologías y herramientas que se utilizaron para desarrollar el proyecto.
+
+## 4. Instrucciones de instalación
+
+Proporciona las instrucciones para instalar el proyecto.
+
+## 5. Instrucciones para ejecutar
+
+Proporciona las instrucciones para ejecutar el proyecto.
+
+## 6. Estructura del proyecto
+
+Proporciona una descripción de la estructura de carpetas del proyecto.
+
+## 7. Lista de errores
+
+Proporciona una lista de errores conocidos.
+
+## 8. Lista de cambios
+
+Pro"
+opendbc\car\common\simple_kalman.py,55,37,7,11,1,1,numpy,"## 📝 Descripción
+
+Este archivo es un ejemplo de una implementación de una filtro de Kalman.
+
+## 🛠️ Herramientas
+
+- Python 3.7.6
+- opencv-python 4.4.0.40
+- numpy 1.19.2
+- matplotlib 3.3.2
+
+## 💾 Instalación
+
+Primero tienes que instalar Python en tu sistema. Luego, desde la consola, ejecuta los siguientes comandos:
+
+```bash
+# clonar el repositorio
+git clone https://github.com/m-kochergin/kalman-filter
+
+# cambiar a la carpeta del proyecto
+cd kalman-filter
+
+# instalar las dependencias
+pip install -r requirements.txt
+```"
+opendbc\car\ford\carcontroller.py,180,111,33,36,2,1,"math, numpy, opendbc.can.packer.CANPacker, opendbc.car.ACCELERATION_DUE_TO_GRAVITY, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.apply_std_steer_angle_limits, opendbc.car.structs, opendbc.car.ford.fordcan, opendbc.car.ford.values.CarControllerParams, opendbc.car.ford.values.FordFlags, opendbc.car.interfaces.CarControllerBase, opendbc.car.interfaces.V_CRUISE_MAX","### Propuesta de la implementación
+
+Escribe una solución alternativa a la implementación actual.
+
+### Preguntas de revisión
+
+Preguntas de revisión para el autor o responsable del código.
+
+### Agradecimientos
+
+Se recomienda proporcionar una lista de personas a las que se deben agradecimientos.
+
+### Referencias
+
+Proporciona enlaces a otras páginas que puedan ayudar a comprender el cambio y su implementación.
+
+## 📦 Propuesta de cambio: opendbc\can\packer.py
+
+### Propuesta de cambio
+
+Explica el siguiente archivo Python llamado 'opendbc\can\packer.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo"
+opendbc\car\ford\carstate.py,185,137,18,30,0,1,"opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.ford.fordcan.CanBus, opendbc.car.ford.values.DBC, opendbc.car.ford.values.CarControllerParams, opendbc.car.ford.values.FordFlags, opendbc.car.interfaces.CarStateBase","""""""
+
+import cereal.messaging as messaging
+from cereal import log
+from common.realtime import sec_since_boot
+from selfdrive.car.parser import CANParser
+from selfdrive.config import Conversions as CV
+from selfdrive.car.opel.values import DBC
+from selfdrive.car.opel.values import CarControllerParams
+from common.numpy_fast import interp
+from selfdrive.car import STD_CARGO_KG, scale_rot_inertia, scale_tire_stiffness, gen_empty_fingerprint
+from selfdrive.car.interfaces import CarInterfaceBase
+
+
+class CarState:
+  def __init__(self, CP):
+
+    self.CP = CP
+    self.can_define = CANDefine(DBC[CP.carFingerprint]['pt'])"
+opendbc\car\ford\fingerprints.py,180,177,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.ford.values.CAR",No se pudo generar resumen.
+opendbc\car\ford\fordcan.py,343,262,22,59,8,1,"opendbc.car.CanBusBase, opendbc.car.structs","💡 Sugerencia:
+Si no estás seguro de la respuesta a una pregunta, haz una búsqueda en la base de conocimiento de OpenBCI, haz una pregunta en el canal de discord, o haz una búsqueda en Google.
+
+Por favor, sigue estas reglas:
+1. No incluir detalles sobre el contexto o los detalles de implementación.
+2. Proporcionar una respuesta corta y concisa (1-2 párrafos).
+3. Si no estás seguro de la respuesta, haz una búsqueda en Google o en la base de conocimiento de OpenBCI.
+4. No uses un lenguaje hostil o discriminatorio.
+
+```
+
+
+
+
+# Respuesta
+
+En el archivo `opendbc\car\ford\"
+opendbc\car\ford\interface.py,99,70,12,17,0,1,"numpy, opendbc.car.Bus, opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.carlog.carlog, opendbc.car.common.conversions.Conversions, opendbc.car.ford.carcontroller.CarController, opendbc.car.ford.carstate.CarState, opendbc.car.ford.fordcan.CanBus, opendbc.car.ford.radar_interface.RadarInterface, opendbc.car.ford.values.CarControllerParams, opendbc.car.ford.values.DBC, opendbc.car.ford.values.Ecu, opendbc.car.ford.values.FordFlags, opendbc.car.ford.values.RADAR, opendbc.car.ford.values.FordSafetyFlags, opendbc.car.interfaces.CarInterfaceBase","### 📃 Documentación de la API
+
+Agrega una documentación de la API para las clases y funciones más importantes de este archivo.
+
+```python
+import numpy
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+
+class CarInterface(CarInterfaceBase):
+    def __init__(self, CP, CAN_PARAMS):
+        super().__init__(CP, CAN_PARAMS)
+        self.car_fingerprint = CP.carFingerprint
+        self.CS = CarState(CP)
+        self.cp = self.CS.get_can_parser(CP)
+        self.cp_cam = self.CS.get_cam_can_parser(CP)
+
+        self.CC = CarController(CP, self.car_"
+opendbc\car\ford\radar_interface.py,273,194,17,62,3,2,"numpy, typing.cast, collections.defaultdict, math.cos, math.sin, dataclasses.dataclass, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.ford.fordcan.CanBus, opendbc.car.ford.values.DBC, opendbc.car.ford.values.RADAR, opendbc.car.interfaces.RadarInterfaceBase","**EJERCICIO 3**
+
+Identifica y explica el siguiente archivo Python llamado 'opendbc\can\parser.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\parser.py
+📦 Clases: CANParser
+🔧 Funciones: can_list_to_can_capnp
+📥 Imports: typing.NamedTuple, dataclasses.dataclass, enum.Enum, typing.List, typing.Tuple, typing.Union, collections.namedtuple, collections.defaultdict, opendbc.can.capnp.can, opendbc.can.capnp.can_capnp, opendbc.can.capnp.can_capnp_pb2, opendbc.can.capnp."
+opendbc\car\ford\values.py,300,216,28,56,4,10,"copy, re, dataclasses.dataclass, dataclasses.field, dataclasses.replace, enum.Enum, enum.IntFlag, opendbc.car.AngleSteeringLimits, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.uds, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Column, opendbc.car.docs_definitions.Device, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.LiveFwVersions, opendbc.car.fw_query_definitions.OfflineFwVersions, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries, opendbc.car.fw_query_definitions.p16","### opendbc\car\ford\values.py
+
+- `get_platform_codes`
+  - ¿Qué hace?
+  - ¿Cuándo se usa?
+  - ¿Cuál es la salida esperada?
+
+- `match_fw_to_car_fuzzy`
+  - ¿Qué hace?
+  - ¿Cuándo se usa?
+  - ¿Cuál es la salida esperada?
+
+- `ford_asbuilt_block_request`
+  - ¿Qué hace?
+  - ¿Cuándo se usa?
+  - ¿Cuál es la salida esperada?
+
+- `ford_asbuilt_block_response`
+  - ¿Qué hace?
+  - ¿Cuándo se usa?
+  - ¿Cuál es la salida"
+opendbc\car\ford\tests\print_platform_codes.py,29,21,1,7,0,0,"collections.defaultdict, opendbc.car.structs.CarParams, opendbc.car.ford.values.get_platform_codes, opendbc.car.ford.fingerprints.FW_VERSIONS",No se pudo generar resumen.
+opendbc\car\ford\tests\test_ford.py,143,115,6,22,0,1,"random, collections.abc.Iterable, hypothesis.settings, hypothesis.given, hypothesis.strategies, parameterized.parameterized, opendbc.car.structs.CarParams, opendbc.car.fw_versions.build_fw_dict, opendbc.car.ford.values.CAR, opendbc.car.ford.values.FW_QUERY_CONFIG, opendbc.car.ford.values.FW_PATTERN, opendbc.car.ford.values.get_platform_codes, opendbc.car.ford.fingerprints.FW_VERSIONS","### Pregunta 4
+
+A partir del siguiente archivo Python llamado 'opendbc\can\tests\test_can_decoder.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\tests\test_can_decoder.py
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.parser, hypothesis.strategies, hypothesis.given, parameterized.parameterized, opendbc.can.decoder, hypothesis.settings, opendbc.can.can_packet
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### Pregunta 5
+
+A partir del siguiente archivo Python llamado 'opendbc\can\tests\test_can_encoder"
+opendbc\car\gm\carcontroller.py,163,109,25,29,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.structs, opendbc.car.gm.gmcan, opendbc.car.common.conversions.Conversions, opendbc.car.gm.values.DBC, opendbc.car.gm.values.CanBus, opendbc.car.gm.values.CarControllerParams, opendbc.car.gm.values.CruiseButtons, opendbc.car.interfaces.CarControllerBase","### CarControllerBase
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### DT_CTRL
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### CanBus
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### CarControllerParams
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### CruiseButtons
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### CanBus
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### DT_CTRL
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### Conversions
+
+Proporciona un resumen técnico conciso y estructur"
+opendbc\car\gm\carstate.py,217,164,16,37,0,1,"copy, numpy, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase, opendbc.car.gm.values.DBC, opendbc.car.gm.values.AccState, opendbc.car.gm.values.CruiseButtons, opendbc.car.gm.values.STEER_THRESHOLD, opendbc.car.gm.values.SDGM_CAR, opendbc.car.gm.values.ALT_ACCS","### 💡 Sugerencia de estilo
+
+```
+# Describe your file in one line
+
+## Describe your file in detail
+
+### Important notes about your file
+```
+
+### 📋 Ejemplo
+
+```
+# opendbc\car\gm\carstate.py
+
+## CarState
+
+### Important notes about your file
+
+```
+
+## 📜 Describe un archivo Python llamado 'opendbc\can\gm.dbc' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\gm.dbc
+🔧 Funciones: Ninguna
+📥 Imports: Ninguno
+📦 Clases: Ninguno
+📦 CANDef"
+opendbc\car\gm\fingerprints.py,76,68,3,5,0,0,opendbc.car.gm.values.CAR,No se pudo generar resumen.
+opendbc\car\gm\gmcan.py,172,127,7,38,12,0,"opendbc.car.can_definitions.CanData, opendbc.car.gm.values.CAR","### 📚 Resumen técnico del archivo
+
+#### 📁 Nombre del archivo: opendbc\can\gm\gmcan.py
+
+Este archivo contiene las clases y funciones para la creación de los mensajes CAN del GM.
+
+#### 🔧 Funciones: create_buttons, create_pscm_status, create_steering_control, create_adas_keepalive, create_gas_regen_command, create_friction_brake_command, create_acc_dashboard_command, create_adas_time_status, create_adas_steering_status, create_adas_accelerometer_speed_status, create_adas_headlights_status, create_lka_icon_command
+
+📝 create_buttons(packer,"
+opendbc\car\gm\interface.py,224,164,18,42,0,1,"os, math.fabs, math.exp, opendbc.car.get_safety_config, opendbc.car.get_friction, opendbc.car.structs, opendbc.car.common.basedir.BASEDIR, opendbc.car.common.conversions.Conversions, opendbc.car.gm.carcontroller.CarController, opendbc.car.gm.carstate.CarState, opendbc.car.gm.radar_interface.RadarInterface, opendbc.car.gm.radar_interface.RADAR_HEADER_MSG, opendbc.car.gm.radar_interface.CAMERA_DATA_HEADER_MSG, opendbc.car.gm.values.CAR, opendbc.car.gm.values.CarControllerParams, opendbc.car.gm.values.EV_CAR, opendbc.car.gm.values.CAMERA_ACC_CAR, opendbc.car.gm.values.SDGM_CAR, opendbc.car.gm.values.ALT_ACCS, opendbc.car.gm.values.CanBus, opendbc.car.gm.values.GMSafetyFlags, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.interfaces.TorqueFromLateralAccelCallbackType, opendbc.car.interfaces.FRICTION_THRESHOLD, opendbc.car.interfaces.LatControlInputs, opendbc.car.interfaces.NanoFFModel","""""""
+
+import os
+import math
+
+from opendbc.can.parser import CANParser
+from opendbc.can.packer import CANPacker
+
+from opendbc.can.can_definitions import DBC
+
+from opendbc.can.packer import CANPacker
+
+from opendbc.can.packer import CANPacker
+
+from opendbc.car.get_safety_config import get_safety_config
+from opendbc.car.get_friction import get_friction
+
+from opendbc.car.structs import CarState, CarEvent, CANData, CANPackerPanda
+from opendbc.car.common.basedir import BASEDIR
+from opendbc.car.common.conversions import Conversions
+
+from opendbc.car.gm.car"
+opendbc\car\gm\radar_interface.py,100,71,8,21,1,1,"math, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.gm.values.DBC, opendbc.car.gm.values.CanBus, opendbc.car.interfaces.RadarInterfaceBase","📝 Describe la implementación de cada clase y función.
+
+📌 Opendbc\car\gm\radar_interface.py
+📗 Opendbc\can\parser\CANParser.py
+📗 Opendbc\car\Bus.py
+📗 Opendbc\car\common\conversions\Conversions.py
+📗 Opendbc\car\gm\values\DBC.py
+📗 Opendbc\car\gm\values\CanBus.py
+📗 Opendbc\car\interfaces\RadarInterfaceBase.py
+
+📌 RadarInterface.create_radar_can_parser
+
+Proporciona un resumen técnico conciso y estructurado.
+
+📝 Describe la implementación."
+opendbc\car\gm\values.py,277,210,24,43,0,11,"dataclasses.dataclass, dataclasses.field, enum.IntFlag, opendbc.car.Bus, opendbc.car.PlatformConfig, opendbc.car.DbcDict, opendbc.car.Platforms, opendbc.car.CarSpecs, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","## 🧪 Pruebas
+
+Por favor, proporciona las pruebas de este código, si las hubiera.
+
+## 🛠️ Construido con
+
+* [Python](https://www.python.org/)
+* [opendbc](https://github.com/commaai/opendbc) - Un conjunto de herramientas y bibliotecas para leer archivos de definición de mensajes y control de datos (DBC) de los dispositivos de control de vehículos conectados.
+
+## 🖇️ Licencia
+
+Este proyecto está bajo la Licencia MIT
+
+## ➡️ Siguiente
+
+* [opendbc](https://github.com/commaai/opendbc) - Un conjunto de herramientas y bibliotecas para leer archivos"
+opendbc\car\gm\tests\test_gm.py,21,13,1,7,0,1,"parameterized.parameterized, opendbc.car.gm.fingerprints.FINGERPRINTS, opendbc.car.gm.values.CAMERA_ACC_CAR, opendbc.car.gm.values.GM_RX_OFFSET","## ¿Cómo se ejecuta este archivo?
+
+Proporciona una guía paso a paso que explica cómo ejecutar este archivo.
+
+## ¿Cómo se prueba este archivo?
+
+Proporciona una guía paso a paso que explica cómo probar este archivo.
+
+## ¿Cómo se refactoriza este archivo?
+
+Proporciona una guía paso a paso que explica cómo refactorizar este archivo.
+
+## ¿Cuáles son los requisitos para ejecutar este archivo?
+
+Proporciona una guía paso a paso que explica cuáles son los requisitos para ejecutar este archivo.
+
+## ¿Cuáles son los requisitos para probar este archivo?
+
+Proporciona una gu"
+opendbc\car\honda\carcontroller.py,249,169,30,50,6,1,"numpy, collections.namedtuple, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.rate_limit, opendbc.car.make_tester_present_msg, opendbc.car.structs, opendbc.car.honda.hondacan, opendbc.car.honda.values.CruiseButtons, opendbc.car.honda.values.VISUAL_HUD, opendbc.car.honda.values.HONDA_BOSCH, opendbc.car.honda.values.HONDA_BOSCH_RADARLESS, opendbc.car.honda.values.HONDA_NIDEC_ALT_PCM_ACCEL, opendbc.car.honda.values.CarControllerParams, opendbc.car.interfaces.CarControllerBase","""""""
+
+import numpy as np
+from collections import namedtuple
+
+from opendbc.can.packer import CANPacker
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+
+from opendbc.car.interfaces import CarControllerBase
+from opendbc.car.structs import CarControl
+from opendbc.car.make_model import DBC_FILES, get_dbc_file, get_car_name
+
+from opendbc.can.packer import CANPacker
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+
+from opendbc.car.interfaces import CarControllerBase
+from opendbc.car.structs import CarControl
+from opendbc.car.make_model"
+opendbc\car\honda\carstate.py,321,236,28,57,1,1,"numpy, collections.defaultdict, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.honda.hondacan.CanBus, opendbc.car.honda.hondacan.get_cruise_speed_conversion, opendbc.car.honda.values.CAR, opendbc.car.honda.values.DBC, opendbc.car.honda.values.STEER_THRESHOLD, opendbc.car.honda.values.HONDA_BOSCH, opendbc.car.honda.values.HONDA_NIDEC_ALT_SCM_MESSAGES, opendbc.car.honda.values.HONDA_BOSCH_RADARLESS, opendbc.car.honda.values.HondaFlags, opendbc.car.honda.values.CruiseButtons, opendbc.car.honda.values.CruiseSettings, opendbc.car.honda.values.GearShifter, opendbc.car.interfaces.CarStateBase","1. ¿Qué es este archivo?
+
+opendbc\car\honda\carstate.py es un archivo Python que contiene una clase llamada CarState que proporciona un resumen técnico del estado del coche. La clase es una clase base que se puede extender en otros archivos para proporcionar más información sobre el estado del vehículo.
+
+2. ¿Qué clases y funciones están aquí?
+
+La clase CarState y la función get_can_messages son las principales clases y funciones. La función get_can_messages es una función que extrae información del CAN y la convierte en un formato más comprensible. La clase CarState es una clase base que contiene la información sobre el estado del coche.
+
+3. ¿Dónde se relaciona con el resto del proyecto?
+
+Se"
+opendbc\car\honda\fingerprints.py,918,909,4,5,0,0,"opendbc.car.structs.CarParams, opendbc.car.honda.values.CAR",No se pudo generar resumen.
+opendbc\car\honda\hondacan.py,212,156,18,38,7,1,"opendbc.car.CanBusBase, opendbc.car.common.conversions.Conversions, opendbc.car.honda.values.HondaFlags, opendbc.car.honda.values.HONDA_BOSCH, opendbc.car.honda.values.HONDA_BOSCH_RADARLESS, opendbc.car.honda.values.CAR, opendbc.car.honda.values.CarControllerParams","### Descripción
+
+El siguiente archivo Python se llama 'opendbc\car\honda\hondacan.py'. Es un archivo de código fuente que se incluye en el proyecto OpenDBC. Este archivo proporciona un resumen técnico para un desarrollador nuevo.
+
+### Descripción
+
+El siguiente archivo Python se llama 'opendbc\car\honda\hondacan.py'. Es un archivo de código fuente que se incluye en el proyecto OpenDBC. Este archivo proporciona un resumen técnico para un desarrollador nuevo.
+
+### Descripción
+
+El siguiente archivo Python se llama 'opendbc\car\honda\hondacan.py'. Es un archivo de código fuente que se incluye en el proyecto OpenDBC. Este archivo proporciona un resumen técnico para un"
+opendbc\car\honda\interface.py,226,154,29,43,0,1,"numpy, opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.disable_ecu.disable_ecu, opendbc.car.honda.hondacan.CanBus, opendbc.car.honda.values.CarControllerParams, opendbc.car.honda.values.HondaFlags, opendbc.car.honda.values.CAR, opendbc.car.honda.values.HONDA_BOSCH, opendbc.car.honda.values.HONDA_NIDEC_ALT_SCM_MESSAGES, opendbc.car.honda.values.HONDA_BOSCH_RADARLESS, opendbc.car.honda.values.HondaSafetyFlags, opendbc.car.honda.carcontroller.CarController, opendbc.car.honda.carstate.CarState, opendbc.car.honda.radar_interface.RadarInterface, opendbc.car.interfaces.CarInterfaceBase","### 📝 Descripción de la clase
+
+Examina el siguiente fragmento de código y responde a las preguntas siguientes.
+
+```python
+class CarInterface(CarInterfaceBase):
+  @staticmethod
+  def compute_gb(accel, speed):
+    return float(accel) / 4.0
+
+  @staticmethod
+  def get_params(candidate, fingerprint=gen_empty_fingerprint(), has_relay=False, car_fw=[]):
+    ret = CarInterfaceBase.get_std_params(candidate, fingerprint, has_relay)
+    ret.carName = ""honda""
+    ret.safetyModel = car.CarParams.SafetyModel.honda
+    ret.enableCruise = False
+    ret.enableGasInterceptor = 0"
+opendbc\car\honda\radar_interface.py,80,60,5,15,1,1,"opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.RadarInterfaceBase, opendbc.car.honda.values.DBC","```
+
+##### 6.3.3.3. Resumen técnico
+
+```markdown
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```
+
+##### 6.3.3.4. Discusión
+
+```markdown
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```
+
+### 6.4. Notas
+
+```markdown
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```
+
+## 7. Conclusión
+
+```markdown
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```
+
+## 8. Referencias
+
+```markdown
+
+Proporciona un resumen técnico conciso y estructurado.
+
+```
+
+## 9. Referencias"
+opendbc\car\honda\values.py,345,270,30,45,1,10,"dataclasses.dataclass, enum.Enum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.structs, opendbc.car.uds, opendbc.car.common.conversions.Conversions, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Column, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries, opendbc.car.fw_query_definitions.p16","### 1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo se encuentra dentro de la carpeta 'car' y contiene una clase de Python llamada 'Honda' que se utiliza para definir los datos de la carrocería Honda.
+
+### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+1. La clase 'Honda' contiene los siguientes campos de datos:
+   1. 'car_params'
+   2. 'safety_config'
+   3. 'safety_param_getters'
+   4. 'fingerprints'
+2. La clase 'Honda' también contiene las siguientes funciones:
+   1. 'get_can_parser'
+   2. 'get_radar_can_parser'
+   3."
+opendbc\car\honda\tests\test_honda.py,15,9,1,5,0,1,"re, opendbc.car.honda.fingerprints.FW_VERSIONS","""""""
+
+import re
+
+from selfdrive.car.honda.values import FW_VERSIONS
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+from selfdrive.car.interfaces import CarStateBase
+from selfdrive.config import Conversions as CV
+
+
+class CarState(CarStateBase):
+  def __init__(self, cp, can_define):
+    super().__init__(can_define)
+
+    self.cp = cp
+    self.can_define = can_define
+    self.cruise_button = 0
+    self.left_blinker_on = 0
+    self.right_blinker_on = 0
+    self.lkas_enabled = 0
+    self.hud_lead = 0
+    self"
+opendbc\car\hyundai\carcontroller.py,217,143,31,43,1,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.common_fault_avoidance, opendbc.car.make_tester_present_msg, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.hyundai.hyundaicanfd, opendbc.car.hyundai.hyundaican, opendbc.car.hyundai.hyundaicanfd.CanBus, opendbc.car.hyundai.values.HyundaiFlags, opendbc.car.hyundai.values.Buttons, opendbc.car.hyundai.values.CarControllerParams, opendbc.car.hyundai.values.CAR, opendbc.car.interfaces.CarControllerBase","### 📁 Nombre del archivo: opendbc\can\hyundai_community_cars.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\can\hyundai_community_cars.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\hyundai_community_cars.py
+🔧 Variables: ALL_CARS, HYUNDAI_COMMUNITY_CARS, HYUNDAI_COMMUNITY_CARS_WITH_HYUNDAI_LKAS
+🔧 Clases: CarInterface
+🔧 Funciones: get_can_parser_db, get_can_db_name
+📥 Imports: common.pack"
+opendbc\car\hyundai\carstate.py,413,325,20,68,0,1,"collections.deque, copy, math, opendbc.can.parser.CANParser, opendbc.can.can_define.CANDefine, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.hyundai.hyundaicanfd.CanBus, opendbc.car.hyundai.values.HyundaiFlags, opendbc.car.hyundai.values.CAR, opendbc.car.hyundai.values.DBC, opendbc.car.hyundai.values.Buttons, opendbc.car.hyundai.values.CarControllerParams, opendbc.car.interfaces.CarStateBase","### Propuesta de cambio
+
+Describe las partes del proyecto en las que tu propuesta de cambio afecta.
+
+### Enlace al video
+
+Si estás proporcionando un cambio no trivial, por favor, adjunta un enlace a un video que muestre tu propuesta de cambio en funcionamiento.
+
+### Notas adicionales
+
+Por favor, proporciona cualquier otra información adicional aquí.
+-->
+
+### Descripción de la propuesta de cambio
+
+<!--
+Describe brevemente las partes del proyecto en las que tu propuesta de cambio afecta.
+-->
+
+### Vínculos al código fuente
+
+<!--
+Por favor, proporciona los vínculos al código fuente en los cuales se realizan los cambios.
+-->
+
+### Notas adicionales"
+opendbc\car\hyundai\fingerprints.py,1242,1235,2,5,0,0,"opendbc.car.structs.CarParams, opendbc.car.hyundai.values.CAR",No se pudo generar resumen.
+opendbc\car\hyundai\hyundaican.py,214,151,31,32,6,0,"crcmod, opendbc.car.hyundai.values.CAR, opendbc.car.hyundai.values.HyundaiFlags","Por favor, utiliza el siguiente ejemplo como guía.
+
+### 📦 Nombre del archivo: opendbc\car\hyundai\hyundaican.py
+
+#### 🔧 Clases
+
+- Hyundaican
+
+#### 📦 Clases
+
+- Hyundaican
+
+#### 📥 Imports
+
+- crcmod
+- opendbc.car.hyundai.values.CAR
+- opendbc.car.hyundai.values.HyundaiFlags
+
+### 📦 Clases
+
+- Hyundaican
+
+#### 🔧 Funciones
+
+- create_lkas11
+- create_clu11
+- create_lfahda_mfc
+- create_acc_commands
+- create_acc_opt
+- create"
+opendbc\car\hyundai\hyundaicanfd.py,234,184,6,44,9,1,"copy, numpy, opendbc.car.CanBusBase, opendbc.car.hyundai.values.HyundaiFlags","Por favor, proporciona un resumen técnico conciso y estructurado para el archivo.
+
+### 📝 Opendbc\Car\Hyundai\HyundaiCanBus\HyundaiCanBus.py
+Analiza el siguiente archivo Python llamado 'opendbc\car\hyundai\hyundaiicanbus.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\hyundai\hyundaiicanbus.py
+🔧 Funciones: create_lkas_hud
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus funciones más importantes?
+3. ¿Cómo se relaciona con el resto"
+opendbc\car\hyundai\interface.py,163,109,20,34,0,1,"opendbc.car.Bus, opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.hyundai.hyundaicanfd.CanBus, opendbc.car.hyundai.values.HyundaiFlags, opendbc.car.hyundai.values.CAR, opendbc.car.hyundai.values.DBC, opendbc.car.hyundai.values.CANFD_UNSUPPORTED_LONGITUDINAL_CAR, opendbc.car.hyundai.values.UNSUPPORTED_LONGITUDINAL_CAR, opendbc.car.hyundai.values.HyundaiSafetyFlags, opendbc.car.hyundai.radar_interface.RADAR_START_ADDR, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.disable_ecu.disable_ecu, opendbc.car.hyundai.carcontroller.CarController, opendbc.car.hyundai.carstate.CarState, opendbc.car.hyundai.radar_interface.RadarInterface","### 📦 Clases
+La clase 'CarInterface' se encuentra en la parte superior del archivo.
+
+📁 Nombre de la clase: CarInterface
+🔧 Funciones: get_can_parser, get_radar_can_parser, get_radar_checksum, get_body_can_parser, get_body_can_validator, get_chassis_can_parser, get_chassis_checksum, get_steering_control, get_steering_control_checksum, get_steering_control_counter, get_gas_pedal, get_gas_pedal_checksum, get_gas_pedal_counter, get_brake_status, get_brake_status_checksum, get_brake_status_counter, get_wheel_speeds, get_"
+opendbc\car\hyundai\radar_interface.py,77,55,1,21,1,1,"math, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.RadarInterfaceBase, opendbc.car.hyundai.values.DBC","""""""
+
+from cereal import car
+from common.numpy_fast import interp
+from selfdrive.car.hyundai.values import CAR, DBC, EV_HYBRID_CAR, HYBRID_CAR, SLOW_STEER_THRESHOLD, Buttons
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+from selfdrive.config import Conversions as CV
+from selfdrive.car.interfaces import RadarInterfaceBase
+
+# #########################################################################################################################################
+# ################################################## LIDAR_LITE 2019 ######################################################################
+# #########################################################################################################################################
+
+class LIDAR_LITE_2019_RadarInterface"
+opendbc\car\hyundai\values.py,805,654,67,84,2,9,"re, dataclasses.dataclass, dataclasses.field, enum.Enum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.uds, opendbc.car.common.conversions.Conversions, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Column, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.p16","📚 Código fuente:
+
+```python
+# opendbc\car\hyundai\values.py
+```
+
+### 🧐📝 Documentación
+
+Explica la siguiente archivo Python llamado 'opendbc\car\hyundai\docs.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\hyundai\docs.py
+🔧 Funciones: get_car_docs
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus funciones más importantes?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+📚 Código fuente:
+
+```python"
+opendbc\car\hyundai\tests\print_platform_codes.py,22,17,1,4,0,0,"opendbc.car.structs.CarParams, opendbc.car.hyundai.values.PLATFORM_CODE_ECUS, opendbc.car.hyundai.values.get_platform_codes, opendbc.car.hyundai.fingerprints.FW_VERSIONS",No se pudo generar resumen.
+opendbc\car\hyundai\tests\test_hyundai.py,248,183,28,37,0,1,"hypothesis.settings, hypothesis.given, hypothesis.strategies, pytest, opendbc.car.gen_empty_fingerprint, opendbc.car.structs.CarParams, opendbc.car.fw_versions.build_fw_dict, opendbc.car.hyundai.interface.CarInterface, opendbc.car.hyundai.hyundaicanfd.CanBus, opendbc.car.hyundai.radar_interface.RADAR_START_ADDR, opendbc.car.hyundai.values.CAMERA_SCC_CAR, opendbc.car.hyundai.values.CANFD_CAR, opendbc.car.hyundai.values.CAN_GEARS, opendbc.car.hyundai.values.CAR, opendbc.car.hyundai.values.CHECKSUM, opendbc.car.hyundai.values.DATE_FW_ECUS, opendbc.car.hyundai.values.HYBRID_CAR, opendbc.car.hyundai.values.EV_CAR, opendbc.car.hyundai.values.FW_QUERY_CONFIG, opendbc.car.hyundai.values.LEGACY_SAFETY_MODE_CAR, opendbc.car.hyundai.values.CANFD_FUZZY_WHITELIST, opendbc.car.hyundai.values.UNSUPPORTED_LONGITUDINAL_CAR, opendbc.car.hyundai.values.PLATFORM_CODE_ECUS, opendbc.car.hyundai.values.HYUNDAI_VERSION_REQUEST_LONG, opendbc.car.hyundai.values.HyundaiFlags, opendbc.car.hyundai.values.get_platform_codes, opendbc.car.hyundai.values.HyundaiSafetyFlags, opendbc.car.hyundai.fingerprints.FW_VERSIONS","-->
+
+## 📈 Progreso
+
+<!--
+Incluye una tabla que muestre la progresión del proyecto.
+
+📁 Nombre del archivo: opendbc\car\hyundai\tests\test_hyundai.py
+📦 Clases: TestHyundaiFingerprint
+🔧 Funciones: test_fw_query_config, test_hyundai_interface, test_hyundai_safety_mode, test_hyundai_interface_legacy_safety, test_hyundai_interface_hybrid, test_hyundai_interface_ev, test_hyundai_interface_canfd, test_hyundai_interface_canfd_fuzzy_whitelist, test_hyundai_interface_unsupported_longitudinal, test_"
+opendbc\car\mazda\carcontroller.py,65,40,12,13,0,1,"opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.structs, opendbc.car.interfaces.CarControllerBase, opendbc.car.mazda.mazdacan, opendbc.car.mazda.values.CarControllerParams, opendbc.car.mazda.values.Buttons","## Código
+
+La sección de código contiene el código Python. Los desarrolladores más avanzados pueden probar este código, ejecutarlo, y realizar cambios.
+
+```python
+from opendbc.can.packer import CANPacker
+from opendbc.car.Bus import Bus
+from opendbc.car.apply_driver_steer_torque_limits import apply_steer_torque_limits
+from opendbc.car.structs import CarControllerParams
+from opendbc.car.interfaces.CarControllerBase import CarControllerBase
+from opendbc.car.mazda.mazdacan import mazdacan
+from opendbc.car.mazda.values import CarControllerParams
+from opendbc.car.mazda.values import Buttons
+
+class CarController(CarControllerBase):
+    def __init__(self,"
+opendbc\car\mazda\carstate.py,162,111,17,34,0,1,"opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase, opendbc.car.mazda.values.DBC, opendbc.car.mazda.values.LKAS_LIMITS, opendbc.car.mazda.values.MazdaFlags","### 3. Descripción de la implementación
+
+El siguiente enfoque es más detallado que el punto anterior. En un resumen técnico, se describen las características principales de las clases. En este punto más detallado, se explican las implementaciones técnicas.
+
+📁 Nombre del archivo: opendbc\car\mazda\carstate.py
+📦 Clases: CarState
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces"
+opendbc\car\mazda\fingerprints.py,270,267,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.mazda.values.CAR",No se pudo generar resumen.
+opendbc\car\mazda\interface.py,33,22,1,10,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.mazda.carcontroller.CarController, opendbc.car.mazda.carstate.CarState, opendbc.car.mazda.values.CAR, opendbc.car.mazda.values.LKAS_LIMITS","## 📂 carcontroller
+📄 Descripción:
+📁 Nombre del archivo: carcontroller.py
+📦 Clases: CarController
+🔧 Funciones: _update_steer_actuator, _update_lkas_command, _update_lkas_status, _update_lkas_limits, _update_steering_torque, _update_steering_angle, _update_accel_lkas, _update_accel_control, _update_brake_lkas, _update_brake_command, _update_brake_command_control, _update_brake_status, _update_brake_status_control, _update_throttle_control, _update_throttle_status, _update_accel_command, _update_ac"
+opendbc\car\mazda\mazdacan.py,129,90,8,31,3,0,"opendbc.car.mazda.values.Buttons, opendbc.car.mazda.values.MazdaFlags","# 1. ¿Cuál es el propósito principal de este archivo?
+
+El propósito principal de este archivo es crear una clase llamada 'MazdaCan'.
+
+# 2. ¿Qué hacen sus clases y funciones más importantes?
+
+## 📦 Clases: Ninguna
+
+## 🔧 Funciones: create_steering_control, create_alert_command, create_button_cmd
+
+La función 'create_steering_control' crea un comando de control de dirección (SteeringControl).
+
+La función 'create_alert_command' crea un comando de alerta (Alert).
+
+La función 'create_button_cmd' crea un comando de botón (ButtonCmd).
+
+# 3. ¿Cómo se relaciona con el"
+opendbc\car\mazda\values.py,105,77,4,24,0,8,"dataclasses.dataclass, dataclasses.field, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.common.conversions.Conversions, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","### 📦 CarControllerParams
+
+Esta clase se utiliza para definir el controlador del coche.
+
+📦 Clase: CarControllerParams
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.car.PlatformConfig
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📦 MazdaCarDocs
+
+Esta clase se utiliza para definir el coche Mazda.
+
+📦 Clase: MazdaCarDocs
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.car.CarDocs, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car"
+opendbc\car\mock\carcontroller.py,7,4,0,3,0,1,opendbc.car.interfaces.CarControllerBase,"### 📚 opendbc\car\mock\carstate.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\car\mock\carstate.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\mock\carstate.py
+📦 Clases: CarState, CarStateBase
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.packer
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y"
+opendbc\car\mock\carstate.py,8,5,0,3,0,1,"opendbc.car.structs, opendbc.car.interfaces.CarStateBase","### Opendbc/car/mock/carmessage.py
+Analiza el siguiente archivo Python llamado 'opendbc\car\mock\carmessage.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\mock\carmessage.py
+📦 Clases: CarMessage
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.packer, opendbc.car.interfaces.CarMessageBase
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un res"
+opendbc\car\mock\interface.py,22,16,2,4,0,1,"opendbc.car.structs, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.mock.carcontroller.CarController, opendbc.car.mock.carstate.CarState","🔗 Enlaces adicionales:
+
+- https://github.com/commaai/opendbc
+- https://github.com/commaai/opendbc/tree/master/car/mock
+- https://github.com/commaai/opendbc/tree/master/car/mock/carcontroller
+- https://github.com/commaai/opendbc/tree/master/car/mock/carstate
+- https://github.com/commaai/opendbc/tree/master/car/structs
+- https://github.com/commaai/opendbc/tree/master/car/interfaces
+- https://github.com/commaai/opendbc/tree/master/car/interfaces/CarInterfaceBase
+- https://github.com/commaai/opendbc/tree/master/car/"
+opendbc\car\mock\values.py,10,7,0,3,0,1,"opendbc.car.CarSpecs, opendbc.car.PlatformConfig, opendbc.car.Platforms","### 📁 Nombre del archivo: opendbc\can\packet.py
+El siguiente archivo Python llamado 'opendbc\can\packet.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\packet.py
+📦 Clases: CANPacket
+🔧 Funciones: Ninguna
+📥 Imports: Ninguna
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📁"
+opendbc\car\nissan\carcontroller.py,76,47,11,18,0,1,"opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.apply_std_steer_angle_limits, opendbc.car.structs, opendbc.car.interfaces.CarControllerBase, opendbc.car.nissan.nissancan, opendbc.car.nissan.values.CAR, opendbc.car.nissan.values.CarControllerParams","### CarControllerBase.py
+
+El siguiente archivo Python llamado 'opendbc\car\nissan\carcontrollerbase.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\nissan\carcontrollerbase.py
+🔧 Clases: CarControllerBase
+📥 Imports: opendbc.car.Bus, opendbc.car.Interfaces, opendbc.car.Interfaces.CarStateBase, opendbc.can.packer.CANPacker, opendbc.can.packer.make_can_msg, opendbc.can.packer.make_can_msg_panda, opendbc.can.packer.CANPackerPanda, opendbc.can.packer.CANPack"
+opendbc\car\nissan\carstate.py,201,156,5,40,0,1,"copy, collections.deque, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase, opendbc.car.nissan.values.CAR, opendbc.car.nissan.values.DBC, opendbc.car.nissan.values.CarControllerParams","**Respuesta**
+
+1. ¿Cuál es el propósito principal de este archivo?
+   - Este archivo es la definición de estado de automóvil para el modelo de Nissan Leaf 2016.
+2. ¿Qué hacen sus clases y funciones más importantes?
+   - La clase CarState tiene la siguiente estructura:
+    ```
+    class CarState(CarStateBase):
+        def __init__(self, cp):
+            super().__init__(cp)
+            self.gas_pressed_prev = False
+    ```
+    - La función create_button_events se utiliza para crear un evento de botón para el control de aceleración.
+    - La función get_can_parser se utiliza para definir un analizador CAN y definir una estructura de datos.
+    ```"
+opendbc\car\nissan\fingerprints.py,124,119,1,4,0,0,"opendbc.car.structs.CarParams, opendbc.car.nissan.values.CAR",No se pudo generar resumen.
+opendbc\car\nissan\interface.py,30,20,1,9,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.nissan.carcontroller.CarController, opendbc.car.nissan.carstate.CarState, opendbc.car.nissan.values.CAR, opendbc.car.nissan.values.NissanSafetyFlags","💡 Opción adicional:
+- Si no está familiarizado con este proyecto, recuerde que esta guía es un resumen de su proyecto y no una guía de aprendizaje.
+- Si tienes alguna pregunta adicional, por favor, pregunta a tus compañeros en la comunidad de discord.
+
+### 🛠️ Procedimiento para solucionar el problema
+
+Proporciona un procedimiento para solucionar el problema.
+
+Para resolver el problema, debes:
+- Describe el problema en la guía.
+- Proporciona el código necesario.
+- Proporciona un ejemplo de cómo se debe comportar el código.
+- Proporciona capturas de pantalla, videos o diagramas si es necesario.
+
+### 🦸 Resuelto"
+opendbc\car\nissan\nissancan.py,155,131,1,23,5,0,"crcmod, opendbc.car.nissan.values.CAR","### 📁 Nombre del archivo: opendbc\car\nissan\nissancan.py
+
+El archivo contiene un subdirectorio llamado can que contiene un archivo llamado messages.py. Se analiza el siguiente archivo Python llamado 'opendbc\car\nissan\nissancan.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\nissan\nissancan.py
+📦 Clases: Ninguna
+🔧 Funciones: create_steering_control, create_acc_cancel_cmd, create_cancel_msg, create_lkas_hud_msg, create_lkas_hud_info_msg
+📥 Imports: crcmod, op"
+opendbc\car\nissan\values.py,118,87,7,24,0,6,"dataclasses.dataclass, dataclasses.field, enum.IntFlag, opendbc.car.AngleSteeringLimits, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.uds, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarParts, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","### opendbc\car\nissan\tests\test_opendbc.py
+Analiza el siguiente archivo Python llamado 'opendbc\car\nissan\tests\test_opendbc.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\car\nissan\tests\test_opendbc.py
+🔧 Funciones: test_car_model_generation
+📥 Imports: opendbc.car.nissan, unittest, pytest, opendbc.car.CarInterface
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se"
+opendbc\car\rivian\carcontroller.py,58,42,4,12,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.interfaces.CarControllerBase, opendbc.car.rivian.riviancan.create_lka_steering, opendbc.car.rivian.riviancan.create_longitudinal, opendbc.car.rivian.riviancan.create_wheel_touch, opendbc.car.rivian.riviancan.create_adas_status, opendbc.car.rivian.values.CarControllerParams","### Describe el comportamiento del controlador de carro
+
+Por favor, analiza el siguiente archivo Python llamado 'opendbc\can\packer\__init__.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\packer\__init__.py
+🔧 Funciones: Ninguna
+📥 Imports: opendbc.can.packer.car.mazda, opendbc.can.packer.car.toyota, opendbc.can.packer.car.toyota_ipas, opendbc.can.packer.car.subaru, opendbc.can.packer.car.subaru_global, opendbc.can.packer.car.tesla, opendbc."
+opendbc\car\rivian\carstate.py,129,83,21,25,0,1,"copy, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.CarStateBase, opendbc.car.rivian.values.DBC, opendbc.car.rivian.values.GEAR_MAP, opendbc.car.common.conversions.Conversions","### 👨‍💻 Ejecución
+
+Esta sección proporciona instrucciones para ejecutar el proyecto en un entorno local.
+
+Ejecuta este proyecto en tu entorno local con los siguientes pasos:
+
+```
+git clone https://github.com/commaai/openpilot.git
+cd openpilot
+pip install -r requirements.txt
+python opendbc/can/parser/CANParser.py
+```
+
+Proporciona un resumen técnico conciso y estructurado.
+
+
+### 🛠 Construcción
+
+Esta sección describe cómo se construyó el proyecto.
+
+Para construir este proyecto, usa el siguiente comando:
+
+```
+git clone https://github.com/commaai/openpilot.git
+cd open"
+opendbc\car\rivian\fingerprints.py,13,10,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.rivian.values.CAR",No se pudo generar resumen.
+opendbc\car\rivian\interface.py,38,27,1,10,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.rivian.carcontroller.CarController, opendbc.car.rivian.carstate.CarState, opendbc.car.rivian.radar_interface.RadarInterface, opendbc.car.rivian.values.RivianSafetyFlags","👍 Proponer
+
+Sí, acepto
+
+```
+
+## Contributing
+
+### Set up your environment
+
+```
+conda env create -f environment.yml
+conda activate rivian
+```
+
+### Install
+
+```
+python setup.py develop
+```
+
+### Testing
+
+```
+python setup.py test
+```
+
+### Linting
+
+```
+flake8 .
+```
+
+### Formatting
+
+```
+black .
+```
+
+### Continuous integration
+
+[![CircleCI](https://circleci.com/gh/commaai/opendbc/tree/master.svg?style=svg)](https://circleci.com/gh/commaai/opendbc/tree/master)
+
+### Documentation
+
+Documentation is in the `docs` folder"
+opendbc\car\rivian\radar_interface.py,72,53,0,19,1,1,"math, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.RadarInterfaceBase, opendbc.car.rivian.values.DBC","### 📦 Nombre del archivo: opendbc\car\rivian\values.py
+📁 Nombre del archivo: opendbc\car\rivian\values.py
+🔧 Funciones: RADAR_MSG_FRAME_IDS, RADAR_MSG_NAMES, RADAR_MSG_SIGNALS, RADAR_MSG_VALUES, RADAR_MSG_FIELDS, RADAR_MSG_SIG_VALUES, RADAR_MSG_SIG_NAMES, RADAR_MSG_SIG_FIELDS
+📥 Imports: opendbc.can.parser.CANParser, opendbc.can.can_definitions, opendbc.can.signal.Signal, op"
+opendbc\car\rivian\riviancan.py,101,77,6,18,5,0,,"## 3. ¿Qué funciona correctamente y qué no funciona?
+
+Describe los casos de prueba que has realizado y explica porqué.
+
+## 4. ¿Qué errores o fallos he encontrado?
+
+Describe los errores que has encontrado y cómo los has solucionado.
+
+## 5. ¿Cómo puedo mejorar el proyecto?
+
+Explica qué mejoras tendría que hacer para hacerlo más robusto.
+
+## 6. ¿Cómo puedo contribuir al proyecto?
+
+Explica cómo puedes contribuir al proyecto.
+
+## 7. Conclusión
+
+Proporciona conclusiones y comentarios sobre tu evaluación del proyecto.
+
+### 7.1. Propuesta de mejora
+
+Describe la propuesta de mejora que te"
+opendbc\car\rivian\values.py,138,98,9,31,1,8,"dataclasses.dataclass, dataclasses.field, enum.StrEnum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.structs, opendbc.car.uds, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Device, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries, opendbc.car.fw_query_definitions.p16, opendbc.car.vin.Vin","Proporciona una explicación técnica detallada.
+
+**Responda las siguientes preguntas sobre este archivo Python.**
+
+📜 ¿Qué clases y funciones hay en este archivo?
+
+📜 ¿Qué propósito principal tienen?
+
+📜 ¿Cómo se relaciona con el resto del proyecto?
+
+📜 ¿Qué bibliotecas y paquetes externos utilizan?
+
+📜 ¿Qué tipo de datos son?
+
+📜 ¿Qué tipo de errores puedo encontrar?
+
+📜 ¿Cómo corro este archivo?
+
+📜 ¿Cómo puedo probar este archivo?
+
+📜 ¿Qué partes de la lógica son más complejas y por qué?"
+opendbc\car\rivian\tests\test_rivian.py,24,20,0,4,0,1,"opendbc.car.rivian.fingerprints.FW_VERSIONS, opendbc.car.rivian.values.CAR, opendbc.car.rivian.values.FW_QUERY_CONFIG, opendbc.car.rivian.values.WMI, opendbc.car.rivian.values.ModelLine, opendbc.car.rivian.values.ModelYear","---
+
+### Descripción de las clases:
+
+1. FW_VERSIONS
+
+Por favor, explica:
+1. ¿Qué hace esta clase?
+2. ¿Qué parámetros toma como entrada?
+3. ¿Qué funciones tiene?
+
+2. CAR
+
+Por favor, explica:
+1. ¿Qué hace esta clase?
+2. ¿Qué parámetros toma como entrada?
+3. ¿Qué funciones tiene?
+
+3. FW_QUERY_CONFIG
+
+Por favor, explica:
+1. ¿Qué hace esta clase?
+2. ¿Qué parámetros toma como entrada?
+3. ¿Qué funciones tiene?
+
+4. WMI
+
+Por favor, explica:
+1. ¿Qué hace esta clase"
+opendbc\car\subaru\carcontroller.py,144,96,14,34,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.common_fault_avoidance, opendbc.car.make_tester_present_msg, opendbc.car.interfaces.CarControllerBase, opendbc.car.subaru.subarucan, opendbc.car.subaru.values.DBC, opendbc.car.subaru.values.GLOBAL_ES_ADDR, opendbc.car.subaru.values.CanBus, opendbc.car.subaru.values.CarControllerParams, opendbc.car.subaru.values.SubaruFlags","## 1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo contiene la lógica para controlar un Subaru.
+
+## 2. ¿Qué hacen sus clases y funciones más importantes?
+
+
+### 2.1 Clase CarController:
+
+Esta clase se utiliza para controlar los datos del Subaru.
+
+### 2.2 Funciones:
+
+#### 2.2.1 self.update(self, sendcan, enabled, CS, frame, actuators, pcm_cancel_cmd):
+
+Esta función se encarga de controlar la información del Subaru.
+
+#### 2.2.2 self.apply(self, sendcan, CS, frame, actuators, pcm_cancel_cmd):
+
+Esta función se encarga de enviar la"
+opendbc\car\subaru\carstate.py,227,176,6,45,0,1,"copy, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase, opendbc.car.subaru.values.DBC, opendbc.car.subaru.values.CanBus, opendbc.car.subaru.values.SubaruFlags, opendbc.car.CanSignalRateCalculator","## 3.3. Proporciona ejemplos de código
+
+Proporciona ejemplos de código para ilustrar lo que hace el archivo.
+
+📝 Ejemplo:
+
+```python
+# Example of what this file does.
+
+import opendbc.can.can_define
+
+class CarState(object):
+
+    def __init__(self, can_define=None, can_parser=None):
+        self.can_define = can_define
+        self.can_parser = can_parser
+```
+
+## 3.4. Proporciona ejemplos de salida
+
+Proporciona ejemplos de salida de código para ilustrar lo que hace el archivo.
+
+📝 Ejemplo:
+
+```python
+# Example of what this file does.
+
+import opendbc.can."
+opendbc\car\subaru\fingerprints.py,573,570,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.subaru.values.CAR",No se pudo generar resumen.
+opendbc\car\subaru\interface.py,105,77,6,22,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.disable_ecu.disable_ecu, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.subaru.carcontroller.CarController, opendbc.car.subaru.carstate.CarState, opendbc.car.subaru.values.CAR, opendbc.car.subaru.values.GLOBAL_ES_ADDR, opendbc.car.subaru.values.SubaruFlags, opendbc.car.subaru.values.SubaruSafetyFlags","```
+
+### Prueba del código
+
+El código se escribe para pasar todas las pruebas del proyecto.
+
+```md
+Explica el siguiente archivo Python llamado 'tests\test_subaru.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: tests\test_subaru.py
+🔧 Funciones: test_subaru_interface
+🔧 Funciones: test_subaru_fwd_brake_msg
+🔧 Funciones: test_subaru_gas_msg
+🔧 Funciones: test_subaru_steer_msg
+🔧 Funciones: test_subaru_tx_hook
+🔧 Funciones: test_subaru_tx_hook_angle
+🔧 Func"
+opendbc\car\subaru\subarucan.py,322,238,13,71,15,0,"opendbc.car.structs, opendbc.car.subaru.values.CanBus","📝 Código de ejemplo
+
+Si es necesario, incluye una muestra de código que demuestre como se usa el código o cómo se usa la funcionalidad descrita en la documentación.
+
+📝 Capturas de pantalla
+
+Si es necesario, incluye capturas de pantalla que muestren la funcionalidad.
+
+📝 Notas adicionales
+
+Si es necesario, incluye notas adicionales de contexto o consideraciones especiales.
+
+### 3.1.4. Pautas de estilo de código
+
+* Incluye un resumen de las pautas de estilo de código relevantes para el proyecto.
+* Incluye un vínculo a la guía de estilo de código si es relevante.
+
+### 3.1.5. Código"
+opendbc\car\subaru\values.py,283,225,16,42,0,9,"dataclasses.dataclass, dataclasses.field, enum.Enum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.uds, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Tool, opendbc.car.docs_definitions.Column, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries, opendbc.car.fw_query_definitions.p16","### Opendbc\Car\Subaru\Values.py
+
+#### CarControllerParams
+
+**Descripción:**
+
+```
+class CarControllerParams(CarControllerParamsBase):
+    """"""
+    Parameters that are set by the car controller.
+
+    These are the parameters that are set by the car controller and are expected to be available to the
+    control stack.
+
+    These parameters are automatically transmitted by the car controller to the control stack.
+    """"""
+```
+
+**Funciones:**
+
+```
+def __init__(self, steer_max: float = 1.0, steer_rate_limited: bool = True, ...)
+```
+
+**Descripción:**
+
+```
+@dataclass
+class CarControllerParamsBase:
+    """"""
+    Base class for car controller params.
+
+    The car controller defines these parameters.
+
+    These"
+opendbc\car\subaru\tests\test_subaru.py,11,8,0,3,0,1,opendbc.car.subaru.fingerprints.FW_VERSIONS,"""""""
+
+
+class TestSubaruFingerprint:
+    def test_fingerprint_model_year(self):
+        pass
+
+    def test_fingerprint_firmware_versions(self):
+        pass
+
+    def test_fingerprint_fingerprint(self):
+        pass
+
+    def test_fingerprint_fingerprint_override(self):
+        pass
+
+    def test_fingerprint_fingerprint_override_bad_value(self):
+        pass
+
+    def test_fingerprint_fingerprint_override_duplicate(self):
+        pass
+
+    def test_fingerprint_fingerprint_override_missing_attributes(self):
+        pass
+
+    def test_fingerprint_fingerprint_override_missing_firmware(self):
+        pass
+
+    def test_"
+opendbc\car\tesla\carcontroller.py,56,38,6,12,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.apply_std_steer_angle_limits, opendbc.car.interfaces.CarControllerBase, opendbc.car.tesla.teslacan.TeslaCAN, opendbc.car.tesla.values.CarControllerParams","No utilices comentarios de código para dar el contexto, en su lugar, utiliza comentarios técnicos.
+
+### Respuesta
+
+#### 1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo define la clase `CarController` que se utiliza para controlar un Tesla Model 3. La clase hereda de `CarControllerBase` y define la funcionalidad de control de la transmisión de la lógica de control de estado de Tesla.
+
+#### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+- La clase `CarController` se utiliza para definir la funcionalidad de control de estado y transmisión de Tesla.
+- La función `process_hud_alerts` procesa alertas en el tablero de instrumentos."
+opendbc\car\tesla\carstate.py,120,77,16,27,0,1,"copy, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarStateBase, opendbc.car.tesla.values.DBC, opendbc.car.tesla.values.CANBUS, opendbc.car.tesla.values.GEAR_MAP, opendbc.car.tesla.values.STEER_THRESHOLD","📍 Nombre de la clase: CarState
+
+¿Qué hace?
+
+Cuando el controlador recibe un mensaje CAN de la Tesla, este se convierte en una instancia de la clase CarState y se asigna a la propiedad can_capnp de la clase CarStateBase.
+
+El procesamiento del mensaje CAN se realiza en el método _update.
+
+¿Por qué?
+
+Es una clase que representa el estado actual de la Tesla, es decir, la información que se obtiene a partir de los mensajes CAN.
+
+¿Cómo?
+
+1. Tiene una propiedad llamada can_capnp, que es una estructura de datos con datos binarios estructurados.
+2. La clase CarStateBase tiene un método llamado update_string,"
+opendbc\car\tesla\fingerprints.py,34,31,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.tesla.values.CAR",No se pudo generar resumen.
+opendbc\car\tesla\interface.py,35,25,0,10,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.tesla.carcontroller.CarController, opendbc.car.tesla.carstate.CarState, opendbc.car.tesla.values.TeslaSafetyFlags","### Descripción
+
+El archivo tiene una clase llamada 'CarInterface' que hereda de la clase 'CarInterfaceBase'.
+
+El constructor de 'CarInterface' recibe un objeto 'CarController' y un objeto 'CarState'.
+
+El método 'init' llama al método 'init' de 'CarInterfaceBase' y luego llama al método 'set_safety_config' pasando el resultado de 'get_safety_config' con un argumento de 'TeslaSafetyFlags' y un argumento de 'tesla'
+
+El método 'update' llama al método 'update' de 'CarInterfaceBase' y luego llama al método 'apply' de 'CarController' pasando 'car_state' y 'car_events'
+
+
+### Métodos
+
+#### init(self, can"
+opendbc\car\tesla\teslacan.py,58,47,1,10,0,1,"opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.V_CRUISE_MAX, opendbc.car.tesla.values.CANBUS, opendbc.car.tesla.values.CarControllerParams","📝 Respuesta
+
+A continuación, encontrará una explicación detallada y estructurada sobre las funciones y clases más importantes.
+
+### Clase `TeslaCAN`
+
+La clase `TeslaCAN` contiene las definiciones de todos los controladores canales de la CAN de Tesla.
+
+- `carState`
+- `carControl`
+- `clu1`
+- `hudControl`
+- `radarState`
+- `liveTrafficData`
+
+### Funciones
+
+#### `get_can_parser(CP)`
+
+Esta función devuelve un diccionario de todas las funciones que se ejecutarán para cada CAN de Tesla.
+
+📝 Respuesta
+
+```
+def get_can_parser(CP):
+  signals ="
+opendbc\car\tesla\values.py,113,79,6,28,0,9,"dataclasses.dataclass, dataclasses.field, enum.Enum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.AngleSteeringLimits, opendbc.car.structs.CarParams, opendbc.car.structs.CarState, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Column, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","📋 Requisitos
+
+Ninguna
+
+🎁 Bonus
+
+Ninguna
+
+📚 Recursos
+
+https://github.com/commaai/openpilot/tree/master/opendbc/car
+
+🛠️ Herramientas
+
+Ninguna
+
+🚦 Estado
+
+🏁 Listo
+
+🧪 Pruebas
+
+Ninguna
+
+🚦 Estado
+
+🎉 Completado
+```
+
+### Opción 2: Explicar un fragmento de código
+
+```
+📦 Proyecto: openpilot
+📋 Título: Explorar el archivo de DBC de Toyota Camry
+🗓 Fecha de entrega: 2021-"
+opendbc\car\tests\routes.py,319,292,7,20,0,1,"typing.NamedTuple, opendbc.car.chrysler.values.CAR, opendbc.car.gm.values.CAR, opendbc.car.ford.values.CAR, opendbc.car.honda.values.CAR, opendbc.car.hyundai.values.CAR, opendbc.car.nissan.values.CAR, opendbc.car.mazda.values.CAR, opendbc.car.mock.values.CAR, opendbc.car.rivian.values.CAR, opendbc.car.subaru.values.CAR, opendbc.car.tesla.values.CAR, opendbc.car.toyota.values.CAR, opendbc.car.values.Platform, opendbc.car.volkswagen.values.CAR, opendbc.car.body.values.CAR","### 📁 Nombre del archivo: opendbc\car\tests\routes.py
+📦 Clases: CarTestRoute
+🔧 Funciones: Ninguna
+📥 Imports: typing.NamedTuple, opendbc.car.chrysler.values.CAR, opendbc.car.gm.values.CAR, opendbc.car.ford.values.CAR, opendbc.car.honda.values.CAR, opendbc.car.hyundai.values.CAR, opendbc.car.nissan.values.CAR, opendbc.car.mazda.values.CAR, opendbc.car.mock.values.CAR, opendbc.car.rivian.values.CAR, opendbc.car.subaru.values"
+opendbc\car\tests\test_can_fingerprint.py,56,38,4,14,0,1,"pytest, opendbc.car.can_definitions.CanData, opendbc.car.car_helpers.FRAME_FINGERPRINT, opendbc.car.car_helpers.can_fingerprint, opendbc.car.fingerprints._FINGERPRINTS","### 1. ¿Cuál es el propósito principal de este archivo?
+
+Este archivo contiene dos clases. La clase 'TestCanFingerprint' proporciona un conjunto de pruebas para el módulo 'can_fingerprint' y la clase 'Fingerprints' proporciona una lista de archivos de parámetros de hardware para el conjunto de parámetros de hardware de TOYOTA.
+
+### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+La clase 'TestCanFingerprint' proporciona un conjunto de pruebas para el módulo 'can_fingerprint'. La clase 'Fingerprints' proporciona una lista de archivos de parámetros de hardware para el conjunto de parámetros de hardware de TOYOTA.
+
+### 3."
+opendbc\car\tests\test_car_interfaces.py,149,103,16,30,1,1,"os, math, hypothesis.strategies, pytest, hypothesis.Phase, hypothesis.given, hypothesis.settings, collections.abc.Callable, typing.Any, opendbc.car.DT_CTRL, opendbc.car.CanData, opendbc.car.gen_empty_fingerprint, opendbc.car.structs, opendbc.car.car_helpers.interfaces, opendbc.car.fingerprints.FW_VERSIONS, opendbc.car.fw_versions.FW_QUERY_CONFIGS, opendbc.car.interfaces.get_interface_attr, opendbc.car.mock.values.CAR, opendbc.car.values.PLATFORMS","#### 📂 Nombre del archivo: opendbc\car\tests\test_car_interfaces.py
+
+Este archivo contiene un conjunto de pruebas de concepto que se utilizan para probar el archivo car_interfaces.py.
+
+📁 Nombre del archivo: opendbc\car\tests\test_car_interfaces.py
+📦 Clases: TestCarInterfaces
+🔧 Funciones: get_fuzzy_car_interface_args
+📥 Imports: os, math, hypothesis.strategies, pytest, hypothesis.Phase, hypothesis.given, hypothesis.settings, collections.abc.Callable, typing.Any, opendbc.car.DT_CTRL, opendbc.car.CanData, opendbc.car.gen_empty_finger"
+opendbc\car\tests\test_docs.py,78,63,3,12,0,1,"collections.defaultdict, pytest, re, opendbc.car.car_helpers.interfaces, opendbc.car.docs.get_all_car_docs, opendbc.car.docs_definitions.Cable, opendbc.car.docs_definitions.Column, opendbc.car.docs_definitions.PartType, opendbc.car.docs_definitions.Star, opendbc.car.docs_definitions.SupportType, opendbc.car.honda.values.CAR, opendbc.car.values.PLATFORMS","""""""
+
+
+# Imports
+from collections import defaultdict
+from enum import Enum
+from typing import Dict, List, Set, Tuple, Union
+
+import pytest
+import re
+
+from opendbc.car.car_helpers.interfaces import CAR, PLATFORMS, get_platform_cars, get_platform_cars_by_type, get_platform_car_type
+from opendbc.car.docs.get_all_car_docs import get_all_car_docs
+from opendbc.car.docs_definitions import Cable, Column, PartType, Star, SupportType
+
+
+class TestCarDocs(object):
+    @pytest.mark.parametrize(""platform"", PLATFORMS)
+    def test_get_all_car_docs(self, platform):
+        """"""
+        Tests"
+opendbc\car\tests\test_fw_fingerprint.py,328,253,22,53,0,2,"pytest, random, time, collections.defaultdict, opendbc.car.can_definitions.CanData, opendbc.car.car_helpers.interfaces, opendbc.car.structs.CarParams, opendbc.car.fingerprints.FW_VERSIONS, opendbc.car.fw_versions.FW_QUERY_CONFIGS, opendbc.car.fw_versions.FUZZY_EXCLUDE_ECUS, opendbc.car.fw_versions.VERSIONS, opendbc.car.fw_versions.build_fw_dict, opendbc.car.fw_versions.match_fw_to_car, opendbc.car.fw_versions.get_brand_ecu_matches, opendbc.car.fw_versions.get_fw_versions, opendbc.car.fw_versions.get_present_ecus, opendbc.car.vin.get_vin","En el caso de que estés escribiendo un archivo de prueba, considera que las pruebas se ejecutan en orden y se pueden depender del resultado de otras pruebas. Por ejemplo, si una prueba genera una excepción, ninguna otra prueba posterior la ejecutará.
+
+Además, puedes escribir documentación adicional que se mostrará automáticamente en la página de documentación del proyecto.
+
+### 🔧 Opciones de configuración
+
+#### 🔧 opendbc\car\tests\test_fw_fingerprint.py
+
+En el caso de que estés escribiendo un archivo de prueba, considera que las pruebas se ejecutan en orden y se pueden depender del resultado de otras pruebas. Por ejemplo, si una prueba genera una excepción, ninguna otra prue"
+opendbc\car\tests\test_lateral_limits.py,97,65,7,25,0,2,"collections.defaultdict, importlib, parameterized.parameterized_class, pytest, sys, opendbc.car.DT_CTRL, opendbc.car.car_helpers.interfaces, opendbc.car.interfaces.get_torque_params, opendbc.car.values.PLATFORMS","**¿Qué hacen sus clases y funciones más importantes?**
+
+Describe las principales funciones de su clase o clases.
+
+La clase TestLateralLimits tiene las siguientes funciones:
+
+1. setup
+2. test_torque_measurements
+3. test_torque_commands
+4. test_torque_limits
+
+La función setup se utiliza para inicializar los valores de los atributos de la clase, que incluye la configuración de los valores de parámetros, y la configuración de los valores de parámetros.
+
+La función test_torque_measurements se utiliza para comprobar la limitación de la velocidad lateral.
+
+La función test_torque_commands se utiliza para comprobar la limitación de la aceleración lateral"
+opendbc\car\tests\test_platform_configs.py,18,11,0,7,0,1,opendbc.car.values.PLATFORMS,"### 📦 Clase TestPlatformConfigs
+
+Para cada plataforma del archivo PLATFORMS de opendbc.car.values, crea un objeto de configuración de plataforma y lo devuelve.
+
+### 🔧 Funciones
+
+#### ⚙️ test_init_platform_configs()
+
+Proporciona un resumen técnico conciso y estructurado.
+
+#### ⚙️ test_get_config()
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📥 Imports
+
+#### opendbc.car.values.PLATFORMS
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📦 Clase PlatformConfig
+
+Proporciona"
+opendbc\car\tests\test_routes.py,12,8,0,4,1,0,"pytest, opendbc.car.values.PLATFORMS, opendbc.car.tests.routes.non_tested_cars, opendbc.car.tests.routes.routes","### 📄 Características de la interfaz
+
+📁 Nombre del archivo: opendbc\car\tests\routes.py
+📦 Clases: None
+🔧 Funciones: routes
+📥 Imports: None
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📄 Características de la interfacia
+
+📁 Nombre del archivo: opendbc\car\tests\routes.py
+📦 Clases: None
+🔧"
+opendbc\car\tests\test_vehicle_model.py,68,44,6,18,0,1,"pytest, math, numpy, opendbc.car.honda.interface.CarInterface, opendbc.car.honda.values.CAR, opendbc.car.vehicle_model.VehicleModel, opendbc.car.vehicle_model.dyn_ss_sol, opendbc.car.vehicle_model.create_dyn_state_matrices","### Pruebas
+
+Escribe una lista de todas las pruebas que se ejecutarán. Incluye el nombre de las pruebas, el resultado de las pruebas, si se pasa, o no y por qué.
+
+### Resultados
+
+Incluye una lista de los resultados de las pruebas y los detalles de las pruebas fallidas.
+
+### Conclusión
+
+Escribe una conclusión.
+
+### Referencias
+
+Proporciona una lista de referencias"
+opendbc\car\toyota\carcontroller.py,291,194,45,52,1,1,"math, numpy, opendbc.car.Bus, opendbc.car.apply_meas_steer_torque_limits, opendbc.car.apply_std_steer_angle_limits, opendbc.car.common_fault_avoidance, opendbc.car.make_tester_present_msg, opendbc.car.rate_limit, opendbc.car.structs, opendbc.car.ACCELERATION_DUE_TO_GRAVITY, opendbc.car.DT_CTRL, opendbc.car.can_definitions.CanData, opendbc.car.carlog.carlog, opendbc.car.common.filter_simple.FirstOrderFilter, opendbc.car.common.pid.PIDController, opendbc.car.secoc.add_mac, opendbc.car.secoc.build_sync_mac, opendbc.car.interfaces.CarControllerBase, opendbc.car.toyota.toyotacan, opendbc.car.toyota.values.CAR, opendbc.car.toyota.values.STATIC_DSU_MSGS, opendbc.car.toyota.values.NO_STOP_TIMER_CAR, opendbc.car.toyota.values.TSS2_CAR, opendbc.car.toyota.values.CarControllerParams, opendbc.car.toyota.values.ToyotaFlags, opendbc.car.toyota.values.UNSUPPORTED_DSU_CAR, opendbc.can.packer.CANPacker","### 1. ¿Cuál es el propósito principal de este archivo?
+
+El propósito principal de este archivo es controlar un coche Toyota, ya que el controlador de coche Toyota es una parte clave del proyecto OpenDBC.
+
+### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+La clase más importante de este archivo es CarController. El método de esta clase que se ejecuta a menudo es get_long_tune, que controla el coche en base a los datos de la pila de datos CAN.
+
+### 3. ¿Cómo se relaciona con el resto del proyecto?
+
+La clase CarController se relaciona con el resto del proyecto a través de la clase CarInterfaceBase, que se encuentra en la ruta opendbc\car\interfaces"
+opendbc\car\toyota\carstate.py,270,193,26,51,0,1,"copy, numpy, opendbc.can.can_define.CANDefine, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.create_button_events, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.common.filter_simple.FirstOrderFilter, opendbc.car.interfaces.CarStateBase, opendbc.car.toyota.values.ToyotaFlags, opendbc.car.toyota.values.CAR, opendbc.car.toyota.values.DBC, opendbc.car.toyota.values.STEER_THRESHOLD, opendbc.car.toyota.values.NO_STOP_TIMER_CAR, opendbc.car.toyota.values.TSS2_CAR, opendbc.car.toyota.values.RADAR_ACC_CAR, opendbc.car.toyota.values.EPS_SCALE, opendbc.car.toyota.values.UNSUPPORTED_DSU_CAR","### 📚 Archivo: opendbc\can\parser.py
+
+Explore e identifica el siguiente archivo Python llamado 'opendbc\can\parser.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\parser.py
+🔧 Funciones: CANParser
+📥 Imports: opendbc.can.parser.CANParserBase, opendbc.can.parser.CANDefine, opendbc.can.parser.CANDefineDbc
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del"
+opendbc\car\toyota\fingerprints.py,1804,1801,0,3,0,0,"opendbc.car.structs.CarParams, opendbc.car.toyota.values.CAR",No se pudo generar resumen.
+opendbc\car\toyota\interface.py,161,99,26,36,0,1,"opendbc.car.Bus, opendbc.car.structs, opendbc.car.get_safety_config, opendbc.car.uds, opendbc.car.toyota.carstate.CarState, opendbc.car.toyota.carcontroller.CarController, opendbc.car.toyota.radar_interface.RadarInterface, opendbc.car.toyota.values.Ecu, opendbc.car.toyota.values.CAR, opendbc.car.toyota.values.DBC, opendbc.car.toyota.values.ToyotaFlags, opendbc.car.toyota.values.CarControllerParams, opendbc.car.toyota.values.TSS2_CAR, opendbc.car.toyota.values.RADAR_ACC_CAR, opendbc.car.toyota.values.NO_DSU_CAR, opendbc.car.toyota.values.MIN_ACC_SPEED, opendbc.car.toyota.values.EPS_SCALE, opendbc.car.toyota.values.UNSUPPORTED_DSU_CAR, opendbc.car.toyota.values.NO_STOP_TIMER_CAR, opendbc.car.toyota.values.ANGLE_CONTROL_CAR, opendbc.car.toyota.values.ToyotaSafetyFlags, opendbc.car.disable_ecu.disable_ecu, opendbc.car.interfaces.CarInterfaceBase","Para mayor detalle, verifica los siguientes temas:
+1. El archivo 'opendbc\car\toyota\interface.py' está en la carpeta 'opendbc\car\toyota'.
+2. La clase 'CarInterface' se encuentra en la carpeta 'opendbc\car\toyota'.
+3. La clase 'CarInterface' hereda de la clase 'CarInterfaceBase' que se encuentra en la carpeta 'opendbc\car\interfaces'.
+4. La clase 'CarInterface' tiene una función 'update' que se encuentra en la carpeta 'opendbc\car\toyota\interface.py'.
+5. La clase 'CarInterface' tiene una variable 'car_fingerprint' que se encuentra en la carpeta 'opendbc\car\toyota\interface"
+opendbc\car\toyota\radar_interface.py,93,70,3,20,1,1,"opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs.RadarData, opendbc.car.toyota.values.DBC, opendbc.car.toyota.values.TSS2_CAR, opendbc.car.interfaces.RadarInterfaceBase","## 2.2.3.1. Cómo se relaciona con el resto del proyecto
+
+Explica el siguiente archivo Python llamado 'opendbc\can\parser.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\parser.py
+🔧 Funciones: create_can_parser, CANParser
+📥 Imports: opendbc.can.structs.CANPacker, opendbc.can.structs.CANPacker, opendbc.can.structs.CANPacker, opendbc.can.structs.CANPacker, opendbc.can.structs.CANPacker, opendbc.can.structs.CANPacker, opendbc.can.structs.C"
+opendbc\car\toyota\toyotacan.py,149,119,5,25,8,0,opendbc.car.structs.CarParams,"""""""
+
+import os
+import math
+
+import cereal.messaging as messaging
+from cereal.services import service_list
+from selfdrive.car.toyota.values import CAR, DBC, STEER_THRESHOLD, FEATURES, Ecu, FINGERPRINT_FUZZ_Factor, TSS2_CAR, NO_DSU_CAR
+from selfdrive.car import STD_CARGO_KG, scale_rot_inertia, scale_tire_stiffness, gen_empty_fingerprint
+from selfdrive.car.interfaces import CarInterfaceBase
+from common.params import Params
+
+# kegman_conf = Params().get(""Kegman"", block = True)
+# dsu_status = kegman_conf['dsuAllowG"
+opendbc\car\toyota\values.py,623,467,90,66,3,8,"re, collections.defaultdict, dataclasses.dataclass, dataclasses.field, enum.Enum, enum.IntFlag, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.AngleSteeringLimits, opendbc.car.common.conversions.Conversions, opendbc.car.structs.CarParams, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.Column, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.CarHarness, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.StdQueries","📦 CarControllerParams
+🔧 to_can_capnp
+📦 CarControllerParams.Toyota
+🔧 ToyotaSafetyFlags
+🔧 ToyotaFlags
+📦 CarControllerParams.Toyota.ToyotaSafetyFlags
+🔧 FLAG
+📦 CarControllerParams.Toyota.ToyotaFlags
+🔧 FLAG
+📦 CarControllerParams.Toyota.Footnote
+🔧 CarFootnote
+📦 CarControllerParams.Toyota.ToyotaDocs
+🔧 CarDocs
+📦 CarControllerParams.Toyota.ToyotaDocs.Column
+🔧 Column
+📦 CarControllerParams.Toyota.ToyotaDocs.Column.Column"
+opendbc\car\toyota\tests\print_platform_codes.py,32,26,1,5,0,0,"collections.defaultdict, opendbc.car.toyota.values.PLATFORM_CODE_ECUS, opendbc.car.toyota.values.get_platform_codes, opendbc.car.toyota.fingerprints.FW_VERSIONS",No se pudo generar resumen.
+opendbc\car\toyota\tests\test_toyota.py,168,116,23,29,1,2,"hypothesis.given, hypothesis.settings, hypothesis.strategies, opendbc.car.Bus, opendbc.car.structs.CarParams, opendbc.car.fw_versions.build_fw_dict, opendbc.car.toyota.fingerprints.FW_VERSIONS, opendbc.car.toyota.values.CAR, opendbc.car.toyota.values.DBC, opendbc.car.toyota.values.TSS2_CAR, opendbc.car.toyota.values.ANGLE_CONTROL_CAR, opendbc.car.toyota.values.RADAR_ACC_CAR, opendbc.car.toyota.values.SECOC_CAR, opendbc.car.toyota.values.FW_QUERY_CONFIG, opendbc.car.toyota.values.PLATFORM_CODE_ECUS, opendbc.car.toyota.values.FUZZY_EXCLUDED_PLATFORMS, opendbc.car.toyota.values.get_platform_codes","-->
+
+<!--
+### Cómo ejecutar tu código
+
+Proporciona las instrucciones para ejecutar tu código.
+-->
+
+<!--
+### Cómo probar tu código
+
+Proporciona instrucciones para probar tu código.
+-->
+
+<!--
+### Cómo desplegar tu código
+
+Proporciona instrucciones para desplegar tu código.
+-->
+
+<!--
+### Cómo limpiar tu código
+
+Proporciona instrucciones para limpiar tu código.
+-->
+
+
+
+### Referencias
+
+
+<!--
+Por favor, proporciona referencias a documentación que sean pertinentes para el código.
+-->
+
+
+
+
+
+
+<!--
+### ¿Qué hacen los tests?
+
+Proporciona instrucciones para ejecutar los tests.
+-->
+
+<!--"
+opendbc\car\volkswagen\carcontroller.py,127,84,21,22,0,1,"numpy, opendbc.can.packer.CANPacker, opendbc.car.Bus, opendbc.car.DT_CTRL, opendbc.car.apply_driver_steer_torque_limits, opendbc.car.structs, opendbc.car.common.conversions.Conversions, opendbc.car.interfaces.CarControllerBase, opendbc.car.volkswagen.mqbcan, opendbc.car.volkswagen.pqcan, opendbc.car.volkswagen.values.CANBUS, opendbc.car.volkswagen.values.CarControllerParams, opendbc.car.volkswagen.values.VolkswagenFlags","""""""
+# stdlib
+import logging
+
+# module
+from opendbc.can.packer import CANPacker
+from opendbc.car.common.apply_steer_torque_limits import CAR_STEER_MAX
+from opendbc.car.common.steer_control import SteerControl
+from opendbc.car.structs import CarControl, CAR
+from opendbc.car.can import get_can_parser_instance
+from opendbc.car.common.conversions import Conversions as CV
+from opendbc.car.interfaces import CarControllerBase
+from opendbc.can.packer import CANPacker as CanPacker
+from opendbc.can.parser import CANParser
+
+from opendbc.can.packer import CANPacker as CanPacker
+from opendbc.can."
+opendbc\car\volkswagen\carstate.py,381,279,39,63,0,3,"numpy, opendbc.can.parser.CANParser, opendbc.car.Bus, opendbc.car.structs, opendbc.car.interfaces.CarStateBase, opendbc.car.common.conversions.Conversions, opendbc.car.volkswagen.values.DBC, opendbc.car.volkswagen.values.CANBUS, opendbc.car.volkswagen.values.NetworkLocation, opendbc.car.volkswagen.values.TransmissionType, opendbc.car.volkswagen.values.GearShifter, opendbc.car.volkswagen.values.CarControllerParams, opendbc.car.volkswagen.values.VolkswagenFlags","""""""
+
+import math
+
+import numpy as np
+from opendbc.can.parser import CANParser
+from opendbc.can.can_define import CANDefine
+from selfdrive.car.volkswagen.values import CANBUS, NetworkLocation, TransmissionType, CarControllerParams, GearShifter, \
+  DBC, CarState, MqbExtraSignals, PqExtraSignals
+
+
+class CarState(CarStateBase):
+  def __init__(self, CP):
+    super().__init__(CP)
+
+    can_define = CANDefine(DBC[CP.carFingerprint][""pt""])
+
+    self.shifter_values = self.controlled_shifter_values(can_define)
+    self.shifter_type = self.controlled_shifter_type(can"
+opendbc\car\volkswagen\fingerprints.py,1248,1242,1,5,0,0,"opendbc.car.structs.CarParams, opendbc.car.volkswagen.values.CAR",No se pudo generar resumen.
+opendbc\car\volkswagen\interface.py,91,62,11,18,0,1,"opendbc.car.get_safety_config, opendbc.car.structs, opendbc.car.interfaces.CarInterfaceBase, opendbc.car.volkswagen.carcontroller.CarController, opendbc.car.volkswagen.carstate.CarState, opendbc.car.volkswagen.values.CAR, opendbc.car.volkswagen.values.NetworkLocation, opendbc.car.volkswagen.values.TransmissionType, opendbc.car.volkswagen.values.VolkswagenFlags, opendbc.car.volkswagen.values.VolkswagenSafetyFlags","# 2. Probar el código
+
+Este código debe probarse en un entorno de desarrollo local.
+
+## 2.1 Comando de ejecución
+
+Proporciona el comando que se debe ejecutar para iniciar el proyecto y el entorno en el que se ejecuta.
+
+## 2.2 Descripción de la prueba
+
+Proporciona una descripción de la prueba que se debe realizar.
+
+## 2.3 Pasos para realizar la prueba
+
+Proporciona los pasos necesarios para ejecutar la prueba.
+
+## 2.4 Resultados esperados
+
+Proporciona los resultados esperados para la prueba.
+
+# 3. Documentación
+
+Este código debe documentarse siguiendo las directrices de estilo de PEP 8.
+
+## 3.1"
+opendbc\car\volkswagen\mqbcan.py,170,132,4,34,10,0,,"📌 Explica el siguiente archivo JSON llamado 'opendbc\can.json' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can.json
+📦 Clases: Ninguna
+🔧 Funciones: Ninguna
+📥 Imports: Ninguno
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+📌 Explica el siguiente archivo JSON llamado 'opendbc\can2.json' y proporciona un resumen"
+opendbc\car\volkswagen\pqcan.py,106,80,2,24,7,0,,"### 2.1.2. Código principal
+
+Por favor, analiza el siguiente archivo Python llamado 'opendbc\can\functions.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\can\functions.py
+📦 Clases: Ninguna
+🔧 Funciones: can_list_to_can_capnp, can_capnp_to_can_list
+📥 Imports: capnp, selfdrive.config, selfdrive.logger
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Propor"
+opendbc\car\volkswagen\values.py,529,442,24,63,1,11,"collections.defaultdict, collections.namedtuple, dataclasses.dataclass, dataclasses.field, enum.Enum, enum.IntFlag, enum.StrEnum, opendbc.car.Bus, opendbc.car.CarSpecs, opendbc.car.DbcDict, opendbc.car.PlatformConfig, opendbc.car.Platforms, opendbc.car.structs, opendbc.car.uds, opendbc.can.can_define.CANDefine, opendbc.car.common.conversions.Conversions, opendbc.car.docs_definitions.CarFootnote, opendbc.car.docs_definitions.CarHarness, opendbc.car.docs_definitions.CarDocs, opendbc.car.docs_definitions.CarParts, opendbc.car.docs_definitions.Column, opendbc.car.docs_definitions.Device, opendbc.car.fw_query_definitions.EcuAddrSubAddr, opendbc.car.fw_query_definitions.FwQueryConfig, opendbc.car.fw_query_definitions.Request, opendbc.car.fw_query_definitions.p16, opendbc.car.vin.Vin","#### Descripción del propósito principal
+Este archivo define un conjunto de parámetros de control para el controlador de autos del VW, con el que se puede interactuar con un controlador de autos VW.
+
+#### Clases más importantes
+* CarControllerParams: Define un conjunto de parámetros de control para un controlador de autos VW.
+* CANBUS: Define la configuración del bus CAN.
+* WMI: Define la configuración de la interfaz WMI.
+* VolkswagenSafetyFlags: Define un conjunto de marcas de banderas de seguridad para un controlador de autos VW.
+* VolkswagenFlags: Define un conjunto de marcas para un controlador de autos VW.
+* VolkswagenMQBPlatformConfig: Define la configuración para la plataforma del controlador de autos V"
+opendbc\car\volkswagen\tests\test_volkswagen.py,61,44,4,13,0,1,"random, re, opendbc.car.structs.CarParams, opendbc.car.volkswagen.values.CAR, opendbc.car.volkswagen.values.FW_QUERY_CONFIG, opendbc.car.volkswagen.values.WMI, opendbc.car.volkswagen.fingerprints.FW_VERSIONS","#### 3.2.1.2. TestVolkswagenPlatformConfigs
+
+Explora el siguiente archivo llamado 'opendbc\car\volkswagen\tests\test_volkswagen.py'.
+
+📁 Nombre del archivo: opendbc\car\volkswagen\tests\test_volkswagen.py
+📦 Clases: TestVolkswagenPlatformConfigs
+🔧 Funciones: test_wmi_query_fingerprints, test_fw_query_fingerprints, test_car_params_fingerprints
+📥 Imports: unittest, random, opendbc.car.structs.CarParams, opendbc.can.can_define
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de esta clase?"
+opendbc\dbc\generator\generator.py,65,40,5,20,3,0,"os, re, glob, subprocess","### 📦 opendbc\dbc\reader\reader.py
+
+Analiza el siguiente archivo Python llamado 'opendbc\dbc\reader\reader.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\dbc\reader\reader.py
+📦 Clases: Ninguna
+🔧 Funciones: read_dbc, create_dbc, create_all
+📥 Imports: os, re, glob, subprocess
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico"
+opendbc\dbc\generator\chrysler\_stellantis_common_ram.py,55,47,1,7,0,0,os,No se pudo generar resumen.
+opendbc\dbc\generator\hyundai\hyundai_kia_mando_corner_radar.py,171,152,7,12,0,0,"collections.namedtuple, os",No se pudo generar resumen.
+opendbc\dbc\generator\hyundai\hyundai_kia_mando_front_radar.py,62,53,2,7,0,0,os,No se pudo generar resumen.
+opendbc\dbc\generator\rivian\rivian_mando_front_radar.py,60,51,2,7,0,0,os,No se pudo generar resumen.
+opendbc\dbc\generator\tesla\tesla_radar_bosch.py,283,249,1,33,0,0,"os, opendbc.dbc.generator.tesla._radar_common.get_radar_point_definition, opendbc.dbc.generator.tesla._radar_common.get_val_definition",No se pudo generar resumen.
+opendbc\dbc\generator\tesla\tesla_radar_continental.py,78,65,1,12,0,0,"os, opendbc.dbc.generator.tesla._radar_common.get_radar_point_definition, opendbc.dbc.generator.tesla._radar_common.get_val_definition",No se pudo generar resumen.
+opendbc\dbc\generator\tesla\_radar_common.py,38,34,1,3,2,0,,"### 🔗 Referencias
+
+A continuación, proporciona referencias adicionales a esta funcionalidad.
+
+### 📝 Notas de la versión
+
+Agrega cualquier otra información que pueda ser de interés para el lector.
+
+### 🛠️ Herramientas de desarrollo
+
+A continuación, proporciona información sobre las herramientas que fueron utilizadas para crear este proyecto.
+
+* [Python](https://www.python.org/)
+* [OpenDBC](https://github.com/commaai/openpilot)
+
+### 🧠 Aprende sobre
+
+A continuación, proporciona información sobre las herramientas que fueron utilizadas para crear este proyecto.
+
+* [OpenDBC](https://github.com/commaai/openpil"
+opendbc\safety\tests\common.py,1053,759,82,212,5,12,"os, abc, unittest, importlib, numpy, collections.abc.Callable, opendbc.can.packer.CANPacker, opendbc.safety.ALTERNATIVE_EXPERIENCE, opendbc.safety.tests.libsafety.libsafety_py","### 📦 Nombre del archivo: opendbc\safety\tests\common.py
+
+### 📦 Clases: CANPackerPanda, PandaSafetyTestBase, LongitudinalAccelSafetyTest, LongitudinalGasBrakeSafetyTest, TorqueSteeringSafetyTestBase, SteerRequestCutSafetyTest, DriverTorqueSteeringSafetyTest, MotorTorqueSteeringSafetyTest, VehicleSpeedSafetyTest, AngleSteeringSafetyTest, PandaSafetyTest, PandaCarSafetyTest
+
+### 🔧 Funciones: sign_of, make_msg, add_regen_tests, _make_regen_test, _regen_test
+
+### 📥"
+opendbc\safety\tests\hyundai_common.py,156,119,4,33,0,3,"unittest, opendbc.safety.tests.common, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common.make_msg","Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Por favor, explica:
+1. ¿Cuál es el propós"
+opendbc\safety\tests\test_body.py,71,50,4,17,0,1,"unittest, opendbc.car.structs.CarParams, opendbc.safety.tests.common, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common.CANPackerPanda","### 2.1.4. Test de funcionalidad
+
+Testeo el siguiente archivo Python llamado 'opendbc\safety\tests\test_brake.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\safety\tests\test_brake.py
+📦 Clases: TestBrake
+🔧 Funciones: Ninguna
+📥 Imports: unittest, opendbc.can.CanTp, opendbc.can.CanTpList, opendbc.can.CanTpBroadcast, opendbc.can.CanTpMessage, opendbc.can.CanTpFrame, opendbc.safety.libpg.PandaGiraffe, opendbc.s"
+opendbc\safety\tests\test_chrysler.py,125,87,4,34,0,3,"unittest, opendbc.car.chrysler.values.ChryslerSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","## 3.3.4. Describe la clase TestChryslerSafety
+
+Este archivo contiene la clase TestChryslerSafety. Esta clase hereda de la clase unittest.TestCase. Por favor, explica:
+1. ¿Qué hace esta clase?
+2. ¿Qué es lo que hace?
+3. ¿Qué hacen sus métodos más importantes?
+4. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 3.3.4.1. Describe el constructor de la clase TestChryslerSafety
+
+Esta clase tiene un constructor que no es específico. Por favor, explica:
+1. ¿Qué hace este constructor?
+2. ¿Qué hace este constructor"
+opendbc\safety\tests\test_defaults.py,75,47,6,22,0,5,"unittest, opendbc.safety.tests.common, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py","### 📦 Clase: TestDefaultRxHookBase
+
+Esta clase es una clase base para todos los tests de seguridad que usa el archivo 'opendbc/safety/tests/test_defaults.py'.
+
+Esta clase hereda de 'opendbc/safety/tests/common.py'.
+
+Esta clase implementa las siguientes funciones:
+* test_default_rx
+
+Proporciona un resumen técnico conciso y estructurado.
+
+
+### 📦 Clase: TestNoOutput
+
+Esta clase es una clase derivada de 'TestDefaultRxHookBase'.
+
+Esta clase implementa las siguientes funciones:
+* test_no_output
+
+Proporciona un resumen técnico conciso y estructurado"
+opendbc\safety\tests\test_elm327.py,50,32,6,12,0,1,"unittest, opendbc.safety.tests.common, opendbc.car.structs.CarParams, opendbc.safety.DLC_TO_LEN, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.test_defaults.TestDefaultRxHookBase","**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un resumen técnico conciso y estructurado.
+
+**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un resumen técnico conciso y estructurado.
+
+**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un resumen técnico conciso y estructurado.
+
+**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un resumen técnico conciso y estructurado.
+
+**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un resumen técnico conciso y estructurado.
+
+**¿Cómo se relaciona con el resto del proyecto?**
+
+Proporciona un res"
+opendbc\safety\tests\test_ford.py,514,377,48,89,1,6,"numpy, random, unittest, opendbc.safety.tests.common, opendbc.car.ford.carcontroller.MAX_LATERAL_ACCEL, opendbc.car.ford.values.FordSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common.CANPackerPanda","### 2.1. Descripción del escenario de prueba
+
+Proporciona una descripción general del escenario de prueba.
+
+### 2.2. Escenario de prueba
+
+Proporciona un resumen general de lo que se está probando, incluyendo
+
+* Datos de entrada
+* Expectativa
+* Datos de salida
+
+### 2.3. Pruebas
+
+Describe las pruebas específicas que se realizaron.
+
+### 2.4. Resultados de las pruebas
+
+Proporciona el resumen general de los resultados.
+
+## 3. Ejemplos de uso
+
+Proporciona un ejemplo de uso de la funcionalidad.
+
+## 4. Referencias
+
+Proporciona la referencia para la funcionalidad.
+
+##"
+opendbc\safety\tests\test_gm.py,232,164,9,59,0,11,"unittest, opendbc.car.gm.values.GMSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","### 📜 💻 Proporciona una explicación breve de los pasos de prueba del archivo de prueba, con ejemplos.
+
+📁 Nombre del archivo: opendbc\safety\tests\test_gm.py
+📦 Clases: Buttons, GmLongitudinalBase, TestGmSafetyBase, TestGmEVSafetyBase, TestGmAscmSafety, TestGmAscmEVSafety, TestGmCameraSafetyBase, TestGmCameraSafety, TestGmCameraEVSafety, TestGmCameraLongitudinalSafety, TestGmCameraLongitudinalEVSafety
+🔧 Funciones: Ninguna
+📥 Imports: unittest, opendbc"
+opendbc\safety\tests\test_honda.py,568,415,37,116,0,16,"unittest, numpy, opendbc.car.honda.values.HondaSafetyFlags, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.car.structs.CarParams, opendbc.safety.tests.common.CANPackerPanda, opendbc.safety.tests.common.MAX_WRONG_COUNTERS","### 🔍 Busca el problema
+
+Describe qué está pasando.
+
+### 🤔 Soluciona el problema
+
+Describe cómo se solucionaría el problema.
+
+### 🤝 Contribuye
+
+- Pull Requests están bien!
+- Para discusiones de diseño, hable en el canal #safety-testing-discuss.
+
+### 📋 Revisión de la guía de estilo
+
+- [Python style guide](https://github.com/commaai/styleguide/blob/master/python.md)
+- [Formatting commit messages](https://github.com/"
+opendbc\safety\tests\test_hyundai.py,280,215,6,59,1,11,"random, unittest, opendbc.car.hyundai.values.HyundaiSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda, opendbc.safety.tests.hyundai_common.HyundaiButtonBase, opendbc.safety.tests.hyundai_common.HyundaiLongitudinalBase","No se trata de un documento de diseño de software, pero es un buen lugar para comenzar.
+"""""",
+
+    """"""
+# opendbc\safety\tests\test_hyundai.py
+
+Este archivo contiene pruebas de seguridad para Hyundai.
+
+📁 Nombre del archivo: opendbc\safety\tests\test_hyundai.py
+📦 Clases: TestHyundaiSafety, TestHyundaiSafetyAltLimits, TestHyundaiSafetyAltLimits2, TestHyundaiSafetyCameraSCC, TestHyundaiSafetyFCEV, TestHyundaiLegacySafety, TestHyundaiLegacySafetyEV, TestHyundaiLegacySafetyHEV, TestHyundaiLongitudinal"
+opendbc\safety\tests\test_hyundai_canfd.py,289,209,9,71,0,11,"parameterized.parameterized_class, unittest, opendbc.car.hyundai.values.HyundaiSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda, opendbc.safety.tests.hyundai_common.HyundaiButtonBase, opendbc.safety.tests.hyundai_common.HyundaiLongitudinalBase","## 🧪 Casos de prueba
+
+Describe la forma en que este archivo se ejecuta.
+
+1. ¿Qué casos de prueba hay aquí?
+2. ¿Cuáles son las pruebas de este archivo?
+3. ¿Cuáles son los casos de prueba que se ejecutan en este archivo?
+4. ¿Cómo se ejecutan estos casos de prueba?
+5. ¿Cómo se prueban los casos de prueba de este archivo?
+
+Proporciona un resumen técnico conciso y estructurado.
+
+## 🛠️ Conclusión
+
+Proporciona un resumen técnico conciso y estructurado.
+
+## 📜 Licencia
+
+Proporciona el texto de la licencia de este archivo.
+
+##"
+opendbc\safety\tests\test_mazda.py,86,60,4,22,0,1,"unittest, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","### Código:
+```python
+# -*- coding: utf-8 -*-
+# Copyright (c) 2016-2018, Ford Motor Company
+# All rights reserved
+#
+# Licensed under the Apache License, Version 2.0 (the ""License"");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an ""AS IS"" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under"
+opendbc\safety\tests\test_nissan.py,119,87,3,29,0,3,"unittest, opendbc.car.nissan.values.NissanSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","### Respuesta
+
+El archivo test_nissan.py tiene como propósito principal proporcionar pruebas unitarias para el módulo de seguridad NissanSafety. El archivo test_nissan_alt_eps_bus.py tiene como propósito principal proporcionar pruebas unitarias para el módulo de seguridad NissanSafetyAltEpsBus. El archivo test_nissan_leaf_safety.py tiene como propósito principal proporcionar pruebas unitarias para el módulo de seguridad NissanLeafSafety.
+
+La clase TestNissanSafety tiene como propósito principal proporcionar pruebas unitarias para el módulo de seguridad NissanSafety. La clase TestNissanSafetyAltEpsBus tiene como"
+opendbc\safety\tests\test_rivian.py,164,114,11,39,1,3,"unittest, numpy, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda, opendbc.car.rivian.values.RivianSafetyFlags, opendbc.car.rivian.riviancan.checksum","### TestRivianSafetyBase
+
+Proporciona un resumen técnico conciso y estructurado de la clase.
+
+### TestRivianStockSafety
+
+Proporciona un resumen técnico conciso y estructurado de la clase.
+
+### TestRivianLongitudinalSafety
+
+Proporciona un resumen técnico conciso y estructurado de la clase.
+
+### checksum
+
+Proporciona un resumen técnico conciso y estructurado de la función.
+
+### unittest
+
+Proporciona un resumen técnico conciso y estructurado de la función.
+
+### numpy
+
+Proporciona un resumen técnico conciso y estructurado de la función.
+
+### opendbc.car.structs"
+opendbc\safety\tests\test_subaru.py,228,160,7,61,4,10,"enum, unittest, opendbc.car.subaru.values.SubaruSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda, functools.partial","### 📦 Clase TestSubaruSafetyBase
+
+Explica el siguiente archivo Python llamado 'opendbc\safety\tests\test_subaru.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\safety\tests\test_subaru.py
+📦 Clases: TestSubaruSafetyBase, TestSubaruStockLongitudinalSafetyBase, TestSubaruLongitudinalSafetyBase, TestSubaruTorqueSafetyBase, TestSubaruGen1TorqueStockLongitudinalSafety, TestSubaruGen2TorqueSafetyBase, TestSubaruGen2TorqueStockLongitudinalSafety, TestSubaruGen1LongitudinalSafety, Test"
+opendbc\safety\tests\test_subaru_preglobal.py,70,49,2,19,0,2,"unittest, opendbc.car.structs.CarParams, opendbc.car.subaru.values.SubaruSafetyFlags, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","### 3. Explica la lógica de control de seguridad para tu modelo.
+
+➡️ Los modelos Subaru tienen controladores de estabilidad de dirección y control de estabilidad de tracción. La seguridad de control de tracción se activa cuando el controlador de estabilidad de tracción detecta que el coche está inestable.
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 4. Explica las pruebas de seguridad que has hecho.
+
+➡️ El subprograma de prueba de seguridad de Subaru es un programa de prueba que simula el control de estabilidad de tracción en el coche. El subprograma de prueba de seguridad de Subaru prueba el control de estabilidad de tracción para el coche cuando se"
+opendbc\safety\tests\test_tesla.py,170,117,12,41,0,3,"unittest, opendbc.car.tesla.values.TeslaSafetyFlags, opendbc.car.structs.CarParams, opendbc.can.can_define.CANDefine, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","📝 Nombre de archivo: opendbc\safety\tests\test_tesla.py
+📦 Clases: TestTeslaSafetyBase, TestTeslaStockSafety, TestTeslaLongitudinalSafety
+🔧 Funciones: Ninguna
+📥 Imports: unittest, opendbc.car.tesla.values.TeslaSafetyFlags, opendbc.car.structs.CarParams, opendbc.can.can_define.CANDefine, opendbc.safety.tests.libsafety_py.common, opendbc.safety.tests.common.CANPackerPanda
+
+Proporciona un resumen técnico conciso y estructurado.
+
+📝 Nombre de archivo:"
+opendbc\safety\tests\test_toyota.py,348,253,19,76,0,8,"numpy, random, unittest, itertools, opendbc.car.toyota.values.ToyotaSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","No trates de cubrir todo el archivo, solo el aspecto más importante.
+
+Por ejemplo:
+
+Este archivo incluye pruebas de seguridad para los coches Toyota. Los siguientes casos de prueba están incluidos:
+
+- Prueba de seguridad de torque de Toyota
+- Prueba de seguridad de ángulo de Toyota
+- Prueba de seguridad de freno alternativo de Toyota
+- Prueba de seguridad longitudinal de Toyota
+- Prueba de seguridad longitudinal de Toyota
+
+Por favor, explica:
+1. ¿Cómo se relaciona con el resto del proyecto?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cuál es el propósito principal de este archivo?
+
+También puedes mir"
+opendbc\safety\tests\test_volkswagen_mqb.py,216,154,22,40,0,3,"unittest, numpy, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda, opendbc.car.volkswagen.values.VolkswagenSafetyFlags","### Descripción de la prueba
+
+Por favor, explica:
+1. ¿Qué hace este script?
+2. ¿Cuál es la entrada?
+3. ¿Cuál es la salida?
+4. ¿Cómo se compara la salida con la entrada?
+5. ¿Cuál es el objetivo de la prueba?
+
+Proporciona una descripción de alto nivel de lo que hace este script.
+
+### Código
+
+Proporciona código que se ejecutará.
+
+### Notas
+
+Proporciona notas sobre el código o cualquier otro detalle que sea relevante.
+
+### Referencias
+
+Proporciona referencias de los enlaces externos al código, los documentos, las pruebas y cualquier otro material que pueda ser útil.
+
+### Pruebas"
+opendbc\safety\tests\test_volkswagen_pq.py,191,132,21,38,0,3,"unittest, opendbc.car.volkswagen.values.VolkswagenSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.common, opendbc.safety.tests.common.CANPackerPanda","## 📷 Imágenes adicionales
+
+Si es necesario, proporciona imágenes adicionales que ayuden a que tu PR sea más fácil de revisar.
+
+
+## 📝 Otros cambios
+
+Proporciona una lista de otros cambios que incluyen cambios a los tests, documentos, código de configuración, etc.
+
+```
+
+## 📚 Leer más
+
+Para más información sobre cómo contribuir a este proyecto, por favor, revisa [Contributing to OpenBC](https://github.com/commaai/openpilot/blob/master/CONTRIBUTING.md).
+
+Para obtener más información sobre cómo contribuir a la comunidad de OpenBC, por favor, revisa [Contributing to the OpenBC Community](https://"
+opendbc\safety\tests\libsafety\libsafety_py.py,76,56,3,17,1,2,"os, cffi.FFI, typing.Protocol, opendbc.safety.LEN_TO_DLC, opendbc.safety.tests.libsafety.safety_helpers.PandaSafety, opendbc.safety.tests.libsafety.safety_helpers.setup_safety_helpers","### 📦 Clase CANPacket
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 🔧 Función make_CANPacket
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📦 Clase Panda
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 🔧 Función make_CANPacket
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📦 Funciones
+
+Proporciona un resumen técnico conciso y estructurado.
+
+Proporciona un resumen técnico conciso y estructurado.
+
+### 📦 Funciones
+
+Proporciona"
+opendbc\safety\tests\libsafety\safety_helpers.py,103,87,1,15,1,1,typing.Protocol,"Por favor, explica:
+1. Qué significa el término ""Protocol""?
+2. ¿Cuál es la diferencia entre la clase PandaSafety y la función setup_safety_helpers?
+3. ¿Cómo se relaciona la clase PandaSafety con el resto del proyecto?
+4. ¿Qué hace la función setup_safety_helpers?
+5. ¿Qué hace la función is_tested?
+6. ¿Cómo se relaciona la función is_tested con el resto del proyecto?
+7. ¿Qué hace la función set_safety_model?
+8. ¿Cómo se relaciona la función set_safety_model con el resto del proyecto?
+9. ¿Qué hace la función set_safety_model_settings?"
+opendbc\safety\tests\misra\test_mutation.py,70,45,15,10,1,0,"os, glob, pytest, shutil, subprocess, tempfile, random","## Proceso de desarrollo
+
+Analiza el siguiente archivo llamado 'opendbc\safety\tests\misra\test_misra.py' y proporciona un resumen técnico para un desarrollador nuevo.
+
+📁 Nombre del archivo: opendbc\safety\tests\misra\test_misra.py
+📦 Clases: Ninguna
+🔧 Funciones: test_misra
+📥 Imports: os, glob, pytest, shutil, subprocess, tempfile, random
+
+Por favor, explica:
+1. ¿Cuál es el propósito principal de este archivo?
+2. ¿Qué hacen sus clases y funciones más importantes?
+3. ¿Cómo se relaciona con el resto del proyecto?
+
+Proporciona"
+opendbc\safety\tests\safety_replay\helpers.py,101,92,1,8,5,0,"opendbc.car.ford.values.FordSafetyFlags, opendbc.car.hyundai.values.HyundaiSafetyFlags, opendbc.car.toyota.values.ToyotaSafetyFlags, opendbc.car.structs.CarParams, opendbc.safety.tests.libsafety.libsafety_py","### 1. ¿Cuál es el propósito principal de este archivo?
+
+Es la clase que contiene las funciones que se utilizan para reproducir datos de seguridad.
+
+### 2. ¿Qué hacen sus clases y funciones más importantes?
+
+1. to_signed: transforma un valor de 8 bits firmado en un valor de 16 bits firmado.
+2. is_steering_msg: determina si un mensaje de control de dirección es un mensaje de dirección de control.
+3. get_steer_value: obtiene el valor de dirección de control de los mensajes de dirección de control.
+4. package_can_msg: agrega el valor de dirección de control al mensaje.
+5. init_segment: crea un segmento nuevo para el reproductor."
+opendbc\safety\tests\safety_replay\replay_drive.py,97,76,4,17,1,0,"argparse, collections.Counter, tqdm.tqdm, opendbc.car.carlog.carlog, opendbc.safety.tests.libsafety.libsafety_py, opendbc.safety.tests.safety_replay.helpers.package_can_msg, opendbc.safety.tests.safety_replay.helpers.init_segment, openpilot.tools.lib.logreader.LogReader","👨‍💻 Descripción
+
+El archivo replay_drive.py se utiliza para replay un archivo de registro de seguridad de Openpilot.
+
+
+👨‍💻 Uso
+
+Para ejecutar el programa, abra un terminal en la carpeta de opendbc y ejecute el comando
+
+```bash
+python safety_replay/replay_drive.py --input <input_log> --output <output_log>
+```
+
+El resultado de la replay se guarda en <output_log>.
+
+
+🤹‍♂️ Uso de prueba
+
+Para ejecutar pruebas automáticas de replay_drive.py, abra un terminal en la carpeta de opendbc y ejecute el comando
+
+```bash
+python"
+site_scons\site_tools\cython.py,73,47,6,20,5,0,"re, SCons, SCons.Action.Action, SCons.Scanner.Scanner","<details><summary><b>Responder aquí</b></summary>
+<p>
+
+1. El propósito principal de este archivo es proporcionar al usuario de la consola un modo de cargar los archivos `.pyx` y generar archivos `.c` y `.cpp` con Cython.
+2. La clase `SCons.Scanner.Scanner` tiene 2 funciones. La función `pyx_scan` es la función que busca archivos con extensión `.pyx` y la función `create_builder` es la función que busca archivos con extensión `.cpp` y `.c`.
+3. El archivo `cython.py` es parte de la librería de Scons.
+
+</p>
+</details>
+
+## 📦 Scons
+
+¿Qué es"

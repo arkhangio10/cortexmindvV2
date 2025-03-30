@@ -1,0 +1,14 @@
+2025-03-24 19:02:42,305 - ERROR - main: ❌ Error al iniciar CodexMindApp: name 'CodeLlamaLLM' is not defined
+2025-03-24 19:02:42,305 - ERROR - main: Traceback (most recent call last):
+  File "C:\Users\braya\Desktop\project_personal\proyectos_nuevos\CODEXMind\VERSION_2\codexmind\interface\gradio_app.py", line 186, in main
+    app_instance = CodexMindApp(config_path)
+  File "C:\Users\braya\Desktop\project_personal\proyectos_nuevos\CODEXMind\VERSION_2\codexmind\interface\gradio_app.py", line 46, in __init__
+    self.llm = CodeLlamaLLM()
+NameError: name 'CodeLlamaLLM' is not defined
+
+2025-03-24 19:08:07,887 - INFO - __main__ - Added project root path: C:\Users\braya\Desktop\project_personal\proyectos_nuevos\CODEXMind\VERSION_2\codexmind
+2025-03-24 19:08:07,887 - ERROR - __main__ - Fatal error in application
+Traceback (most recent call last):
+  File "C:\Users\braya\Desktop\project_personal\proyectos_nuevos\CODEXMind\VERSION_2\codexmind\interface\gradio_app.py", line 231, in main
+    llm = CodeLlamaLLM()
+NameError: name 'CodeLlamaLLM' is not defined
